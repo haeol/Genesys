@@ -1,7 +1,7 @@
 ### Git usage
 
 *..Clone..*
-> git clone https://github.com/aniquedavla/Tea.git
+> git clone https://github.com/haeol/Genesys
 
 *..Make all changes in a branch; not on master; to make a branch…*
 > git branch new_branch <br/>
@@ -19,5 +19,5 @@
 > git push origin master (upload it to master branch)<br/>
 
 *…if you want to update from master; usually after you merge something to master…*
-> git pull origin master <- download changes in master<br/>
-> git merge master <- combine your branch with the master.<br/>
+> git pull origin master (download changes in master)<br/>
+> git merge master (combine your branch with the master)<br/>
