@@ -1,0 +1,226 @@
+@import '_variables';
+
+
+p{
+  color: $primary !important;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a, ol, ul, td {
+  color: inherit !important;
+  text-decoration: none !important;
+    &hover{
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
+}
+
+a:hover img {
+  border: 0;
+}
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label{
+  display: block;
+  color: $yellow !important;
+}
+
+.glyphicon {
+  background: none;
+  line-height: 1px !important;
+  margin: 25px 10px !important;
+  font-size: 3em;
+  &:hover{
+    color: $yellow !important;
+  }
+}
+.black{
+  color: black !important;
+}
+
+.yellow{
+  color: $yellow !important;
+}
+
+/* Main Section */
+.survey-section {
+  max-width: 100%;
+  width: 35em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+h2{}
+/*Format fieldset*/
+.survey-fieldset {
+  color: red;
+  font-family:monospace;
+}
+
+.survey-fieldset div {
+  margin-bottom: 1rem;
+  border-bottom-style:outset;
+}
+
+/* Container shadow */
+.mat-shadow {
+  box-shadow: 0px 4px 9px -2px rgba(0,0,0,1);
+}
+
+/* Sub Header formatting */
+.sub-header {
+  margin: 0;
+  padding: .5em;
+  color: white;
+  background-color: $secondary;
+}
+
+/* Survey formatting */
+
+.main-form fieldset {
+  margin-bottom: 3em;
+}
+
+.main-form {
+  background-color: $black !important;
+  padding: 1.3em;
+}
+
+.main-form .main-input {
+  /* Line break after each input */
+  color: #B4DCEC;
+  display: block;
+  margin: 1.1em 0;
+  width: 100%;
+}
+
+.main-form .input {
+  /* Line break after each input */
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+}
+
+/* Input Label formatting */
+.main-form label {
+  font-size: 1.4em;
+  display: block;
+  width: 100%;
+}
+
+/* Title headings */
+.title{
+  font-family: fantasy;
+  font-size: 1.4em;
+  color:#7D2831;
+}
+.sub-title {
+  font-size: .9em; 
+  color: #B4DCEC;  
+  margin:0;
+}
+.option{color:#B4DCEC;}
+
+/* Profile Form Table */
+.profile-table {
+  color: white;
+  width: 100%;
+}
+
+.profile-table .input {
+  color: #B4DCEC;
+  width: 100%;
+}
+
+.profile-table td {
+  background-color: $black;
+  padding: .5rem;
+}
+
+.preferance-input .main-input {
+  display: inline-block;
+  width: auto;
+}
+
+/* Progress bar */
+.progress {
+  width: 40em;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
+.container {
+  color:  #B4DCEC;
+  padding: 1em;
+}
+
+/* Meter format */
+.meter {
+  width: 100%;
+}
+
+/* Button format */
+
+.submit-btn {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1.1em;
+  border-style: none;
+  padding: .75em 1em;
+  color: #B4DCEC;
+  background-color: #534C49;
+}
