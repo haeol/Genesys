@@ -6,6 +6,7 @@
 *..Make a branch…*
 > git branch new_branch <br/>
 > git checkout new_branch (this will switch to your new branch)
+> git branch (this will check your current branch)
 
 *… you do some work on your branch…*
 > git add . (add every change to the commit) <br/>
