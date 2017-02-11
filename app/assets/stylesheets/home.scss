@@ -4,6 +4,23 @@ body{
 background-color: $white !important;
 padding-top: 90px !important;
 }
+
+.home-background{
+  background-image: url('https://dwzhla-dm2306.files.1drv.com/y3m0YOkhMCGyJh5a2WJ6gh3iidgzmKG9aendI5KKznaaM5Fgu4yvKmSgJmd_eLbiLqQW3wYwgL8SpsXH4I-d1gVgv5sIZUFFQc5OvyxbZq8zenlTE-vOsL26Q-2T6bKJ_P-S1Ywgl5ai2SBp50fWJnmQKeU3kHy2I9XlHFzWNPfFT8?width=1077&height=1077&cropmode=none');
+  background-size:100% auto;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 155px; /* .push must be the same height as .footer */
+}
+
 /* border */
 .navbar-default {
   background-color: $black !important;
@@ -253,8 +270,6 @@ small {
   position: relative;
   display: flex;
   margin: 0 auto;
-  width: 852px;
-  height: 852px;
 }
 
 .thumbnail {
