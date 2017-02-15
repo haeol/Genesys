@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Genesys</title>
+   <!-- Links -->
     <%= csrf_meta_tags %>
-
-    <!-- Links -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,9 +12,34 @@
   </head>
 
   <body>
+<!-- Navigation Bar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="closed-box"><%= link_to image_tag("genesys_logo_blue.png", :class => "logo pull-left"), '/pages/home' %></div>
+  <div class="open-box"><%= link_to image_tag("genesys_logo_white.png", :class => "logo pull-left"), '/pages/home' %></div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <!-- brand -->
+      <a class="navbar-brand"><span id="span-brand pull-left">eneSYS</span></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to 'Home', root_path, {:class => 'btn btn-default navbar-btn'} %>
+        <li><%= link_to 'About', '/pages/about', {:class => 'btn btn-default navbar-btn'} %></li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ <!-- End of Navigation Bar -->
+
     <%= yield %>
-
-
   </body>
 <div class="container text-center">
 <p class="text-muted credit">© <%= Date.today.year %> Genesys </p>
