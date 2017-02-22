@@ -23,3 +23,14 @@
 *…if you want to update from master; usually after you merge something to master…*
 > git pull origin master (download changes in master)<br/>
 > git merge master (combine your branch with the master)<br/>
+
+*..configuring postgres..*
+> pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server)
+> createuser -s -r genesys (create a user for postgres named genesys, don't change the name)
+> rake db:create:all (if db is not yet created)
+> rake db:migrate    (if db is already created)
+> rails s            (should now work)
+
+*..using postgres..every time you start the server, you have to start postgres first..*
+> pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server)
+> pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log stop  (stop the server)
