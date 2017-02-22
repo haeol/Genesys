@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+    before_action :authenticate_user!
     def show
       if valid_page?
         render template: "pages/#{params[:page]}"
