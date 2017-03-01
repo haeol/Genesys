@@ -32,5 +32,5 @@
 > rails s            (should now work) <br/>
 
 *..using postgres..every time you start the server, you have to start postgres first..*
-> pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
+> pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
 > pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop  (stop the server) <br/>
