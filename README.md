@@ -24,6 +24,9 @@
 > git pull origin master (download changes in master)<br/>
 > git merge master (combine your branch with the master)<br/>
 
+*..installing postgres on mac..*
+> brew install postgres
+
 *..configuring postgres..*
 > pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
 > createuser -s -r genesys (create a user for postgres named genesys, don't change the name) <br/>
