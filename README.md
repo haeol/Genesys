@@ -28,7 +28,7 @@
 > brew install postgres
 
 *..configuring postgres..*
-> pg_ctl -D /user/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
+> pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
 > createuser -s -r genesys (create a user for postgres named genesys, don't change the name) <br/>
 > rake db:create:all (if db is not yet created) <br/>
 > rake db:migrate    (if db is already created) <br/>
