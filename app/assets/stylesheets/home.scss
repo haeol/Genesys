@@ -254,10 +254,15 @@ h1{
   float: right;
 }
 
-h2{
-  color: $white-smoke !important;
-}
-
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0;
+    color: $primary !important;
+  }
 h3{
   text-decoration: none !important;
   color: $primary !important;
@@ -302,14 +307,23 @@ small {
   margin: 0 auto;
 }
 
+.img-responsive{
+  &:hover{
+  border-color: transparent !important;
+  }
+}
+
 .thumbnail {
   background-color: transparent !important;
   border-color: transparent !important;
+  &:hover{
+  border-color: transparent !important;
+  }
 }
 
 .img-thumbnail{
   border-color: transparent !important;
-  background-color: inherit !important;
+  background-color: transparent !important;
   max-width: 25% !important;
   max-height: 25% !important;
 }
