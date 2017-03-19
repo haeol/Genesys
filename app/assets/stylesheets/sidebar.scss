@@ -1,10 +1,12 @@
+@import "_variables";
+$sidebar-text: $white-smoke;
 /*!
  * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- body {
+ #sidebar-wrapper {
     overflow-x: hidden;
  }
 
@@ -19,18 +21,19 @@
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: $sidebar-width;
 }
 
 #sidebar-wrapper {
+    color: $sidebar-text;
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: $sidebar-width;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -$sidebar-width;
     overflow-y: auto;
-    background: #000;
+    background: $graphite;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -38,18 +41,18 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: $sidebar-width;
 }
 
 #page-content-wrapper {
-    width: 100%;
+    width: calc(100% - #{$sidebar-width});
     position: absolute;
     padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    //margin-right: -$sidebar-width;
 }
 
 /* Sidebar Styles */
@@ -57,7 +60,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: $sidebar-width;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -71,12 +74,12 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: $sidebar-text;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
+    color: $sidebar-text;
     background: rgba(255,255,255,0.2);
 }
 
@@ -92,38 +95,10 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: $sidebar-text;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 0;
-    }
-
-    #wrapper.toggled {
-        padding-left: 250px;
-    }
-
-    #sidebar-wrapper {
-        width: 0;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
 }

@@ -1,5 +1,6 @@
 @import '_variables';
 
+
 body{
 background-color: $white !important;
 padding-top: 45px !important;
@@ -11,6 +12,10 @@ padding-top: 45px !important;
   background-repeat: no-repeat;
 }
 
+#footer {
+  bottom: 0px;
+}
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -19,223 +24,6 @@ padding-top: 45px !important;
 }
 .footer, .push {
     height: 155px; /* .push must be the same height as .footer */
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {   
-    color: $white !important;
-  }   
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,    
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {   
-  color: $white-smoke !important;   
-}   
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a,   
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,   
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {    
-  color: $white-smoke !important;   
-  background-color: $white-smoke !important;    
-  }   
-}
-
-
-/* border */
-.navbar-default {
-  background-color: $black !important;
-  border-color: $white-smoke !important;
-  -webkit-box-shadow: 0 8px 6px -6px $gray;
-  -moz-box-shadow: 0 8px 6px -6px $gray;
-  box-shadow: 0 8px 6px -6px $gray;
-}
-
-/* title aka brand */
-.navbar-default .navbar-brand {
-  color: $white !important;
-}
-/* hover text */
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: $white-smoke !important;
-}
-.navbar-default .navbar-text {
-  color: $white !important;
-}
-/* text color */
-.navbar-default .navbar-nav > li > a {
-  color: $white !important;
-}
-/* hover li text */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: $white-smoke !important;
-  background-color: $primary !important;
-}
-/* drop down menu back ground color */
-.navbar-default .navbar-nav > li > .dropdown-menu {
-  background-color: $black;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
-  color: $white !important;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
-.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: $white-smoke !important;
-  background-color: $primary !important;
-}
-.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-  background-color: $primary !important;
-}
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-  color: $white-smoke !important;
-  background-color: $primary !important;
-}
-/* active */
-.navbar-default .navbar-nav > .active > a{
-  background-color: inherit !important;
-}
-
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
-.navbar-default .navbar-nav > .open > a:focus {
-  color: $white-smoke !important;
-  background-color: $primary !important;
-}
-.navbar-default {
-  border-color: $primary !important;
-}
-
-/* 3 bar hamburger */
-.icon-bar {
-    background-color: $secondary !important;
-}
-
-/* button */
-  .navbar-toggle{
-  border-color: $white-smoke !important;
-  border: none;
-  
-  &:hover {
-    background: transparent !important;
-    background-color: $white-smoke !important;
-  }
-
-  .icon-bar {
-    width: 22px;
-    transition: all 0.5s;
-  }
-  .top-bar {
-    transform: translate(3px)rotate(45deg);
-    transform-origin: 10% 10%;
-  }
-  .middle-bar {
-    transform: translate(-34px);
-    opacity: 0;
-  }
-  .bottom-bar {
-    transform: translate(3px)rotate(-45deg);
-    transform-origin: 10% 90%;
-  }
-
-  &.collapsed {
-    .top-bar {
-      transform: rotate(0);      
-    }
-    .middle-bar {
-      transform: translate(0px);
-      opacity: 1;
-    }
-    .bottom-bar {
-      transform: rotate(0);
-    }
-  }
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  background-color: $white-smoke !important;
-}
-/* hamburger button */
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: $primary !important;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-  border-color: $white !important;
-}
-.navbar-default .navbar-link {
-  color: $white !important;
-}
-.navbar-default .navbar-link:hover {
-  color: $white-smoke !important;
-}
-
-/* drop down menu animation */
-
-.open > .dropdown-menu {
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);  
-  opacity:1;
-}
-  
-.dropdown-menu {
-  opacity:.3;
-  -webkit-transform-origin: top;
-  transform-origin: top;
-  -webkit-animation-fill-mode: forwards;  
-  animation-fill-mode: forwards; 
-  -webkit-transform: scale(1, 0);
-  transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
-}
-
-.caret-up {
-    width: 0; 
-    height: 0; 
-    border-left: 4px solid rgba(0, 0, 0, 0);
-    border-right: 4px solid rgba(0, 0, 0, 0);
-    border-bottom: 4px solid;
-    
-    display: inline-block;
-    margin-left: 2px;
-    vertical-align: middle;
-}
-
-.btn{
-
-}
-
-.btn-default {
-    color: $gray !important;
-    background-color: inherit !important;
-    border-color: $gray !important
-}
-
-.navbar-btn {
-  border-color: red $white-smoke;
-  /* Top Right Bottom Left */
-  padding: 6px 8px 6px 8px !important;
-  margin: 6px 6px 0px 8px !important;
-}
-
-
-
-/* title */
-.navbar-brand{
-  font-size: 3em !important;
-  color: $white-smoke !important;
-  /* Top Right Bottom Left */
-  margin: 0px 0px 0px 0px !important;
-  padding: 14px 8px 0px 0px !important;
-}
-
-.field{
-  
 }
 
 /* Byte text */
@@ -351,21 +139,21 @@ small {
   background-color: transparent !important;
   background: transparent url('https://ytpmfg-dm2306.files.1drv.com/y3mee8lAwNuBotyl9Q5jgl-c5HzFzW8AHWjbbNsHFYo5VmF0Ds00r3MZaDlrTyMx1XT93xd6w0YG137LTpjS_TbUbicnjXxVIkOjXWBW-xbIEhNjlRsEe7fColbEBqnFDJhZ-8ERcGZdp9FP7Nc8mzvcvoGwESFTecivibGX314uKk?width=3840&height=2160&cropmode=none');
   padding: 5vh;
- 
+
   background-size: cover;
   margin: 0 auto;
   height: 100%;
   border-style: none;
 }
 
-.col-sm-1, .col-sm-2, .col-sm-4, 
+.col-sm-1, .col-sm-2, .col-sm-4,
 .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10 {
   font-family: $font;
   font-size: 1.5em;
   font-weight: 750;
   color: $primary;
   background-color: transparent !important;
- 
+
   border-color: transparent !important;
 }
 
@@ -376,7 +164,7 @@ border-color: transparent !important;
 .icon {
   float: left;
   background-color: inherit;
-  width: 35px; 
+  width: 35px;
   height: 35px;
   object-fit: cover;
   &:hover {
@@ -403,4 +191,3 @@ p{
 hr{
   border-top: 2px solid $secondary !important;
 }
-

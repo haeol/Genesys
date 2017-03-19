@@ -1,0 +1,84 @@
+@import "_variables";
+$cushion: 40px;
+$content-width: $tab-item-width + 2*$tab-item-margin;
+// Place all the styles related to the Tab controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dashboard {
+  width: 100%;
+  text-align: center;
+}
+
+.content-tab {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.tab-item {
+  width: $tab-item-width;
+  height: $tab-item-height;
+  margin: $tab-item-margin;
+  display: table;
+  float: left;
+}
+
+@media only screen and (max-width: $sidebar-width + $cushion + 2*$content-width) {
+  .content-tab {
+    width: $content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 2*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  3*$content-width) {
+  .content-tab {
+    width: 2*$content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 3*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  4*$content-width) {
+  .content-tab {
+    width: 3*$content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 4*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  5*$content-width) {
+  .content-tab {
+    width: 4*$content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 5*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  6*$content-width) {
+  .content-tab {
+    width: 5*$content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 6*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  7*$content-width) {
+  .content-tab {
+    width: 6*$content-width;
+  }
+}
+
+@media only screen and
+  (min-width: ($sidebar-width + $cushion + 7*$content-width + 1px)) and
+  (max-width: $sidebar-width + $cushion +  8*$content-width) {
+  .content-tab {
+    width: 7*$content-width;
+  }
+}
+
+@media only screen and (min-width: $sidebar-width + $cushion + 8*$content-width + 1px) {
+  .content-tab {
+    width: 8*$content-width;
+  }
+}
