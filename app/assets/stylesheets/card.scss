@@ -1,3 +1,5 @@
+@import "_variables";
+
 .card {
   position: relative;
   display: block;
@@ -22,12 +24,21 @@
 }
 
 .card-title {
+  font-size: 16px;
   margin-bottom: 0.75rem;
 }
 
 .card-subtitle {
   margin-top: -0.375rem;
   margin-bottom: 0;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.card-text > .text-muted {
+  color: #BBBBBB !important;
 }
 
 .card-text:last-child {
@@ -208,6 +219,12 @@
 
 .card-img {
   border-radius: calc(0.25rem - 1px);
+}
+
+// restrict image size TODO needs work
+.card-img-container > a > img {
+  max-width: 100%;
+  max-height: $tab-item-height; // this doesn't do anything right now
 }
 
 .card-img-overlay {

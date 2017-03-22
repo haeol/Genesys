@@ -95,7 +95,7 @@
 }
 
 /* button */
-  .navbar-toggle{
+.navbar-toggle {
   border-color: $white-smoke !important;
   border: none;
 
@@ -204,6 +204,10 @@
   margin: 6px 6px 0px 8px !important;
 }
 
+/* height */
+.navbar-header{
+  height: $navbar-height;
+}
 
 
 /* title */
@@ -213,8 +217,22 @@
   /* Top Right Bottom Left */
   margin: 0px 0px 0px 0px !important;
   padding: 14px 8px 0px 0px !important;
+  width: $sidebar-width;
 }
 
 .field{
 
+}
+
+
+/* Search Bar */
+.navbar-searchbar {
+  width: calc(90% - #{$sidebar-width});
+  padding-top: 6px;
+  /*
+  text-indent: 0px;
+  line-height: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  */
 }
