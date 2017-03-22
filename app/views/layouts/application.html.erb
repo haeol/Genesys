@@ -12,7 +12,7 @@
   </head>
 
   <body>
-  
+
   <%= render "navbar/navbar" %>
 
   <div id="wrapper" class="toggled">
@@ -22,7 +22,7 @@
 
     <div id="page-content-wrapper">
 
-      <div class="container=fluid">
+      <div class="container-fluid">
         <% if notice %>
           <div class="alert alert-success"><%= notice %></div>
         <% end %>
@@ -35,9 +35,13 @@
     </div>
   </div>
 
+  <!--
+  <div id="footer">
+    <div class="container text-center">
+      <p class="text-muted credit">© <%= Date.today.year %> Genesys </p>
+    </div>
+  </div>
+  -->
   </body>
-<div class="container text-center">
-<p class="text-muted credit">© <%= Date.today.year %> Genesys </p>
-</div>
 
 </html>

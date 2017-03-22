@@ -1,8 +1,10 @@
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
+  <!--
   <div class="closed-box"><%= link_to image_tag("genesys_logo_blue.png", :class => "logo pull-left"), '/pages/home' %></div>
   <div class="open-box"><%= link_to image_tag("genesys_logo_white.png", :class => "logo pull-left"), '/pages/home' %></div>
+  -->
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -13,20 +15,39 @@
         <span class="icon-bar bottom-bar"></span>
       </button>
       <!-- brand -->
+      <!--
       <a class="navbar-brand"><span id="span-brand pull-left">eneSYS</span></a>
+      -->
+      <div class="navbar-brand pull-left">
+        <%= link_to "Flip", dashboard_index_path %>
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <!-- Left nav buttons -->
+      <ul class="nav navbar-nav navbar-searchbar">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div><!-- /input-group -->
+        <!--
         <li class="active"><%= link_to 'Home', root_path, {:class => 'btn btn-default navbar-btn'} %>
         <li><%= link_to 'About', '/pages/about', {:class => 'btn btn-default navbar-btn'} %></li>
-				<% if !user_signed_in? %>    
-          <%= link_to('Login', new_user_session_path, :class => 'btn btn-default navbar-btn') %>
+        -->
+      </ul>
+      <!-- Right nav buttons -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+    			<% if !user_signed_in? %>
+            <%= link_to('Login', new_user_session_path, :class => 'btn btn-default navbar-btn') %>
+          <% else %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'btn btn-default navbar-btn') %>
           <% end %>
-          <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'btn btn-default navbar-btn') %>
-        <% end %>
+        </li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
