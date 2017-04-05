@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 	#end
 	resources :dashboard, :only => [:index]
 	
-	resources :groups
+	resources :myprofile, :only => [:index]
+
+	resources :groups, :only => [:index]
+
+	resources :friends, :only => [:index]
 
 	
 	get "/pages/*page" => "pages#show"
