@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 	#	get "*page" => "pages#show"
 	#end
 	resources :dashboard, :only => [:index]
+	
+	resources :groups
 
+	
 	get "/pages/*page" => "pages#show"
 
 	root "pages#show", page: "home"
