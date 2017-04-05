@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tabs, dependent: :destroy # delete personalized tabs if user destroyed
+  has_many :links
+  has_many :comments
 end
