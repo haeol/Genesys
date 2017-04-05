@@ -6,7 +6,14 @@ Rails.application.routes.draw do
 	#	get "*page" => "pages#show"
 	#end
 	resources :dashboard, :only => [:index]
+	
+	resources :myprofile, :only => [:index]
 
+	resources :groups, :only => [:index]
+
+	resources :friends, :only => [:index]
+
+	
 	get "/pages/*page" => "pages#show"
 
 	root "pages#show", page: "home"

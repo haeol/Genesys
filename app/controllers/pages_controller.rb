@@ -2,7 +2,7 @@ class PagesController < ApplicationController
     #before_action :authenticate_user!
     def show
       if valid_page?
-        render template: "pages/#{params[:page]}"
+	render template: "pages/#{params[:page]}"
       else
         render file: "public/404.html", status: :not_found
       end
