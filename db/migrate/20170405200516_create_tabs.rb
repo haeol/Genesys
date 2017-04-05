@@ -1,10 +1,7 @@
 class CreateTabs < ActiveRecord::Migration[5.0]
   def change
     create_table :tabs do |t|
-      t.string :tag
-      t.integer :order
-
-      t.timestamps
+      t.reference :tag
     end
   end
 end
