@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405213310) do
+ActiveRecord::Schema.define(version: 20170407080237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,19 @@ ActiveRecord::Schema.define(version: 20170405213310) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "links", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer "original_poster_id"
     t.integer "rating"
     t.string  "url"
-    t.index ["original_poster_id"], name: "index_links_on_original_poster_id", using: :btree
+    t.integer "user_id"
+    t.text    "description"
+    t.index ["original_poster_id"], name: "index_posts_on_original_poster_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "tag_id",  null: false
   end
 
   create_table "tabs", force: :cascade do |t|
@@ -57,5 +65,6 @@ ActiveRecord::Schema.define(version: 20170405213310) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "tabs", "users"
 end

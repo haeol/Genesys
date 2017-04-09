@@ -1,4 +1,7 @@
 class Tag < ApplicationRecord
-  belongs_to :link
-  belongs_to :tab
+
+  has_and_belongs_to_many :post
+
+  
+
 end

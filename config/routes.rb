@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+
 	devise_for :users, controllers: { sessions: 'users/sessions' }
 
 
 	#resources :pages do
 	#	get "*page" => "pages#show"
 	#end
+  resources :posts#, :path => 'post'
+
 	resources :dashboard, :only => [:index]
 	
 	resources :myprofile, :only => [:index]
