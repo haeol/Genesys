@@ -1,16 +1,17 @@
 class Post < ApplicationRecord
-  #include Filterable # TODO get module to work, located in ./concerns/filterable.rb
+
+  include Filterable # located in ./concerns/filterable.rb
+	# filter can ONLY take these parameters
+  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+  scope :tag, -> (tag_name) { Tag.find_by_name(tag_name).posts  }
+
+  require 'action_view'
+  include ActionView::Helpers::DateHelper
 
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  #scope :name, -> (name) { where name: name }
-
-  # setter
-  #def original_poster_id=(id)
-  #  @original_poster_id = id
-  #end
-
+  # Creating new posts
   def copy(user_id)
     post = dup
     post.user_id = user_id
@@ -29,16 +30,39 @@ class Post < ApplicationRecord
       end
       self.tags << tag
     end
-
   end
+  # end creating new posts
+  
 
+  # Filtering / Retrieving Tabs
+
+  # check concerns/filterable.rb for methods
+
+  # end filtering and tabs
+
+
+  # Utility
   def strip_tag(tag)
     tag.gsub(/[^0-9a-z ]/i, '').downcase
   end
+  # end utility
 
+
+  # Formatted information
   def original_poster
-    User.find(self.original_poster_id)
+    # TODO change this to username instead of email once username implemented
+    User.find(self.original_poster_id).email
   end
+
+  def poster
+    # TODO change this to username instead of email once username implemented
+    self.user.email
+  end
+
+  def submit_time_diff
+    "Submitted #{distance_of_time_in_words(self.created_at, Time.now)} ago"
+  end
+  #end formatted information
   
 
 end
