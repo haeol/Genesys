@@ -1,18 +1,31 @@
 <div class="content-tab" id="content-tab">
-	<% (1..30).each do %>
+	<% Post.all[0..10].each do |post| %>
+    <!-- This is a card partial, but rendering partials is slower than doing this -->
 		<div class="card tab-item">
-			<!--<img class="card-img-top" src="/assets/PlaceholderImage.png" alt="Card image cap">-->
 			<div class="card-img-top">
 				<div class="card-img-container">
 					<%= link_to image_tag("PlaceholderImage.png"), :class => "card-img"%>
 				</div>
 			</div>
 			<div class="card-block">
-				<h4 class="card-title">Movie Name / Music Name</h4>
-				<p class="card-text">This is a preview to the rating.</p>
-				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				<h4 class="card-title">
+          <%= post.name %>
+        </h4>
+				<p class="card-text">
+          <%= link_to "Go to Link", post.url %>
+        </p>
+				<p class="card-text">
+          <%= post.description %>
+        </p>
+				<p class="card-text">
+          <%= post.rating %>
+        </p>
+				<p class="card-text">
+          <small class="text-muted"> <%= post.submit_time_diff %> </small>
+        </p>
 			</div>
 		</div>
+    <!-- end card -->
 	<% end %>
 
 

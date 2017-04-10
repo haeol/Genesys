@@ -1,32 +1,31 @@
 <%= form_for post do |f| %>
+  <!-- display any errors -->
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this meeting from being saved:</h2>
-
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
       <ul>
       <% post.errors.full_messages.each do |message| %>
-        <li><%= post %></li>
+        <li><%= message.to_s %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+  <div class="field">
     <%= f.text_field :url, class: "form-control", placeholder: "Link" %>
   </div>
-  <br/>
   <div class="field">
     <%= f.text_field :rating, class: "form-control", placeholder: "Rating" %>
   </div>
-  <br/>
   <div class="field">
     <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Tags" %>
   </div>
-  <br/>
   <div class="field">
     <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Your Thoughts"%>
   </div>
-  <br/>
   <div class="actions">
     <%= f.submit "Create Post", class: "btn btn-primary" %>
     <%= link_to 'Back to Dashboard', dashboard_index_path, class: "btn btn-primary" %>
