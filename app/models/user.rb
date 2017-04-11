@@ -8,5 +8,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
 
+  def viewableposts
+    if posts
+      posts.order('created_at DESC').limit(50)
+    end
+  end
 
 end
