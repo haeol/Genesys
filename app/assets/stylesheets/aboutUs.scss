@@ -1,6 +1,7 @@
 @import '_variables';
 
 
+/*
 p{
   color: $primary !important;
 }
@@ -39,6 +40,7 @@ div {
     margin-bottom: 10px;
   }
 }
+*/
 
 #notice {
   color: green;
@@ -65,10 +67,12 @@ div {
   }
 }
 
+/*
 label{
   display: block;
   color: $yellow !important;
 }
+*/
 
 .glyphicon {
   background: none;
