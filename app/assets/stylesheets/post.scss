@@ -1,3 +1,145 @@
-// Place all the styles related to the Post controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_variables';
+
+/* Style for each input line */
+.form-control{
+	border-radius: 0px !important;
+}
+
+.glyphicon {
+  background: none;
+  margin: 1em 0em !important;
+  font-size: 2.5em;
+  &:hover{
+  	background: none;
+  	text-decoration: none;
+    color: $primary !important;
+  }
+}
+
+/* Main Section */
+.survey-section {
+  max-width: 100%;
+  width: 35em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+/*Format fieldset*/
+.survey-fieldset {
+  color: red;
+  font-family:monospace;
+}
+
+.survey-fieldset div {
+  margin-bottom: 1rem;
+  border-bottom-style:outset;
+}
+
+/* Container shadow */
+.mat-shadow {
+  box-shadow: 0px 4px 9px -2px rgba(0,0,0,1);
+}
+
+/* Sub Header formatting */
+.sub-header {
+  margin: 0;
+  padding: .5em;
+  color: white;
+  background-color: $primary;
+}
+
+/* Survey formatting */
+
+.main-form fieldset {
+  margin-bottom: 3em;
+}
+
+.main-form {
+  background-color: $black !important;
+  padding: 1.3em;
+}
+
+.main-form .main-input {
+  /* Line break after each input */
+  color: #B4DCEC;
+  display: block;
+  margin: 1.1em 0;
+  width: 100%;
+}
+
+.main-form .input {
+  /* Line break after each input */
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+}
+
+/* Input Label formatting */
+.main-form label {
+  font-size: 1.4em;
+  display: block;
+  width: 100%;
+}
+
+/* Title headings */
+.title{
+  font-family: fantasy;
+  font-size: 1.4em;
+  color:#7D2831;
+}
+.sub-title {
+  font-size: .9em; 
+  color: #B4DCEC;  
+  margin:0;
+}
+.option{color:#B4DCEC;}
+
+/* Profile Form Table */
+.profile-table {
+  color: white;
+  width: 100%;
+}
+
+.profile-table .input {
+  width: 100%;
+}
+
+.profile-table td {
+  background-color: $black;
+  padding: 5px 10px 5px 10px;
+  /*padding: .75rem;*/
+}
+
+.preferance-input .main-input {
+  display: inline-block;
+  width: auto;
+}
+
+/* Progress bar */
+.progress {
+  width: 40em;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
+.container {
+  color:  #B4DCEC;
+  padding: 1em;
+}
+
+/* Meter format */
+.meter {
+  width: 100%;
+}
+
+/* Button format */
+
+.submit-btn {
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+  font-size: 1em;
+  border-style: none;
+  padding: .75em 1em;
+  color: #white;
+  background-color: $primary;
+}
