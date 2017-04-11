@@ -28,10 +28,21 @@
       <!-- Left nav buttons -->
       <ul class="nav navbar-nav navbar-searchbar">
         <div class="input-group">
+
+          <!-- TODO format -->
+          <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+          <%= submit_tag "Search" %>
+          <% end %>
+
+          <!--
           <input type="text" class="form-control" placeholder="Search for...">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button">Go!</button>
           </span>
+          -->
+
+
         </div><!-- /input-group -->
         <!--
         <li class="active"><%= link_to 'Home', root_path, {:class => 'btn btn-default navbar-btn'} %>

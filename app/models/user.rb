@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :tabs, dependent: :destroy # delete personalized tabs if user destroyed
   has_many :posts
   has_many :comments
+
+
 end

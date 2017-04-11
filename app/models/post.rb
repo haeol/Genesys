@@ -1,9 +1,23 @@
 class Post < ApplicationRecord
 
   include Filterable # located in ./concerns/filterable.rb
+
 	# filter can ONLY take these parameters
-  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
-  scope :tag, -> (tag_name) { Tag.find_by_name(tag_name).posts  }
+  scope :starts_with, -> (name) {
+    where("name like ?", "#{name}%")
+  }
+
+  # MUST use strip_tag before calling
+  scope :tag, -> (tag_name) { 
+    Tag.find_by_name(tag_name.gsub(/[^0-9a-z ]/i, '').downcase).posts
+    #Tag.find_by_name(tag_name).posts
+  } 
+
+  scope :tag_id, -> (tag_id) {
+    Tag.find(tag_id).posts
+  }
+  # end filter params
+
 
   require 'action_view'
   include ActionView::Helpers::DateHelper
@@ -42,9 +56,9 @@ class Post < ApplicationRecord
 
 
   # Utility
-  def strip_tag(tag)
-    tag.gsub(/[^0-9a-z ]/i, '').downcase
-  end
+  #def strip_tag(tag)
+  #  tag.gsub(/[^0-9a-z ]/i, '').downcase
+  #end
   # end utility
 
 
