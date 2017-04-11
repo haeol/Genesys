@@ -4,15 +4,11 @@ class Post < ApplicationRecord
 
 	# filter can ONLY take these parameters
   scope :starts_with, -> (name) {
-    where("name like ?", "#{name}%")
+    where("lower(name) like ?", "%#{name.downcase}%")
   }
-
-  # MUST use strip_tag before calling
   scope :tag, -> (tag_name) { 
     Tag.find_by_name(tag_name.gsub(/[^0-9a-z ]/i, '').downcase).posts
-    #Tag.find_by_name(tag_name).posts
   } 
-
   scope :tag_id, -> (tag_id) {
     Tag.find(tag_id).posts
   }
@@ -56,9 +52,23 @@ class Post < ApplicationRecord
 
 
   # Utility
-  #def strip_tag(tag)
-  #  tag.gsub(/[^0-9a-z ]/i, '').downcase
-  #end
+    #TODO put regular expressions in a module
+  def strip_tag(tag)
+    tag.gsub(/[^0-9a-z ]/i, '').downcase
+  end
+
+  def youtube?
+    #self.url =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/
+    youtube_id = self.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/)
+    if youtube_id
+      youtube_id = youtube_id[1]
+    end
+    youtube_id
+  end
+
+  # TODO
+  def soundcloud?
+  end
   # end utility
 
 

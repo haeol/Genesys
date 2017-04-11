@@ -1,5 +1,5 @@
 <div class="content-tab" id="content-tab">
-	<% Post.all[0..10].each do |post| %>
+	<% posts.each do |post| %>
     <!-- This is a card partial, but rendering partials is slower than doing this -->
 		<div class="card tab-item">
 			<div class="card-img-top">
@@ -15,8 +15,13 @@
           <%= link_to "Go to Link", post.url %>
         </p>
 				<p class="card-text">
+          <%= link_to "View Post", post_path(post) %>
+        </p>
+        <% if false %>
+				<p class="card-text">
           <%= post.description %>
         </p>
+        <% end %>
 				<p class="card-text">
           <%= post.rating %>
         </p>

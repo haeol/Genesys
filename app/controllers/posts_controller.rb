@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.filter(params.slice(:name, :tag, :tag_id, :starts_with))
   end
 
   def new
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def edit

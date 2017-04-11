@@ -34,6 +34,9 @@ $sidebar-width: 200px;
 
 
 /* Tab Item Properties */
-$tab-item-width: 175px;
-$tab-item-height: 220px;
+$tab-item-width: 200px;
+$tab-item-height: 300px;
 $tab-item-margin: 3px;
+
+$card-img-height: 110px;
+$card-block-height: $tab-item-height - $card-img-height

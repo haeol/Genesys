@@ -10,7 +10,8 @@
 }
 
 .card-block {
-  padding: 1.25rem;
+  //padding: 1.25rem;
+  height: $card-block-height;
 }
 
 .card-block::after {
@@ -237,6 +238,10 @@
 }
 
 .card-img-top {
+  height: $card-img-height;
+  overflow: hidden;
+  margin: auto;
+
   border-top-right-radius: calc(0.25rem - 1px);
   border-top-left-radius: calc(0.25rem - 1px);
 }

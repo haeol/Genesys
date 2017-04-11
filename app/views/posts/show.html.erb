@@ -1,2 +1,26 @@
 <h1>Post#show</h1>
-<p>Find me in app/views/post/show.html.erb</p>
+<%= @post.name %>
+</br>
+<%= @post.url %>
+</br>
+<%= @post.description %>
+</br>
+<%= @post.submit_time_diff %>
+</br>
+<%= @post.poster %>
+</br>
+<% if (youtube_id = @post.youtube?) %>
+
+<object width="640" height="360">
+    <param name="movie" value=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%>>
+    <param name="allowFullScreen" value="true"/>
+    <param name="allowscriptaccess" value="always"/>
+    <embed width="640" height="360" src=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%> class="youtube-player" type="text/html" allowscriptaccess="always" allowfullscreen="true"/>
+</object>
+<% end %>
+
+
+<iframe scrolling="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F34019569&amp;auto_play=false&amp;show_artwork=true&amp;color=0066cc" frameborder="no" width="100%" height="166"></iframe>
+
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai" frameborder="0" allowtransparency="true"></iframe>
