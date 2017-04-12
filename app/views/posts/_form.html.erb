@@ -1,5 +1,6 @@
 <%= form_for post do |f| %>
   <!-- display any errors -->
+  <%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,23 +12,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :url, class: "form-control", placeholder: "Link" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :rating, class: "form-control", placeholder: "Rating" %>
-  </div>
-  <div class="field">
-    <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Tags" %>
-  </div>
-  <div class="field">
-    <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Your Thoughts"%>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create Post", class: "btn btn-primary" %>
-    <%= link_to 'Back to Dashboard', dashboard_index_path, class: "btn btn-primary" %>
-  </div>
+  <form id="survey-form" class="main-form">
+
+    <div class="survey-section mat-shadow">
+      <h2 class="sub-header">Log in</h2>
+
+
+      <table class="profile-table">
+        <tbody>
+
+          <!-- Validate user input -->
+          <tr>
+            <td colspan="3">
+              <input class="input" type="hidden" name="_csrf" value="csrfTokenGoesHereFromServer">
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+              <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+              </div>
+              </tr>
+
+            <td colspan="2">
+              <div class="form-group">
+              <%= f.text_field :url, class: "form-control", placeholder: "Link" %>
+              </div>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+            <%= f.text_field :rating, class: "form-control", placeholder: "Rating" %>
+            </td>
+            </div>
+          </tr
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+             <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Tags" %>
+            </td>
+            </div>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+            <div class="form-group">
+             <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Your thoughts"%>
+            </td>
+            </div>
+          </tr>    
+
+           <tr>
+            <td colspan="2">
+            <div class="form-group actions">
+             <%= f.submit "Create Post", class: "btn submit-btn" %>
+            </td>
+            </div>
 <% end %>

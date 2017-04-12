@@ -1,10 +1,14 @@
 class Post < ApplicationRecord
 
   include LinkParser
+  include Foo
   include Filterable # located in ./concerns/filterable.rb
 
 	# filter can ONLY take these parameters
   scope :starts_with, -> (name) {
+    where("lower(name) like ?", "#{name.downcase}%")
+  }
+  scope :contains, -> (name) {
     where("lower(name) like ?", "%#{name.downcase}%")
   }
   scope :tag, -> (tag_name) { 
@@ -22,7 +26,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  # Creating new posts
+  # Creating posts
   def copy(user_id)
     post = dup
     post.user_id = user_id
