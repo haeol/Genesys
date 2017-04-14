@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 	#end
   resources :posts#, :path => 'post'
 
-	resources :dashboard, :only => [:index]
+	#resources :dashboard, :only => [:index], defaults: {format: 'js'}
+	resources :dashboard#, :only => [:index], defaults: {format: 'js'}
+  #get 'dashboard', to: 'dashboard#index', as: 'dashboard_index'
 	
 	resources :myprofile, :only => [:index]
 
