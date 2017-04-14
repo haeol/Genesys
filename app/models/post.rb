@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
 
   include LinkParser
-  include Foo
   include Filterable # located in ./concerns/filterable.rb
 
 	# filter can ONLY take these parameters
