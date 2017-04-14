@@ -1,12 +1,4 @@
-
-/*
-$(document).ready(function() {
-    $('.nav-item').click(function() {
-      $(this).addClass('active').siblings('.active').removeClass('active');
-    });
-});
-*/
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     $('.nav-item').click(function() {
       $(this).addClass('active').siblings('.active').removeClass('active');
     });
