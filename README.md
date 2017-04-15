@@ -9,7 +9,6 @@
 > git branch (this will check your current branch)
 
 *… you do some work on your branch…*
-> RAILS_ENV=production bundle exec rake assets:precompile
 > git add . (add every change to the commit) <br/>
 > git commit -m “This is the work I did!” (describe your changes)<br/>
 > git push origin branch_i_am_on (upload it to the server)<br/>
