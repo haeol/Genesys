@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
 
+  include LinkParser
   include Filterable # located in ./concerns/filterable.rb
 
 	# filter can ONLY take these parameters
@@ -24,7 +25,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
 
-  # Creating new posts
+  # Creating posts
   def copy(user_id)
     post = dup
     post.user_id = user_id

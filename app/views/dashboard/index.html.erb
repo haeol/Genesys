@@ -1,4 +1,13 @@
 <div id="dashboard" class="dashboard">
-    <!-- TODO overflowing cards -->
-    <%= render "dashboard/tab", :posts => @posts %>
+	<!-- TODO overflowing cards -->
+	<ul class="nav nav-pills dashboard-tabs">
+		<% tags.each do |tag| %>
+			<li class="nav-item <%=current_page?(dashboard_index_path(tag_id: tag.id)) ? 'active' : ''%>" id="tag-<%=tag.id%>">
+				<%= link_to "#{tag.capital_name}", dashboard_index_path(tag_id: tag.id), remote: true %>
+			</li>
+		<% end %>
+	</ul>
+	<div class="content-tab" id="content-tab">
+		<%= render "dashboard/tab", :posts => posts %>
+	</div>
 </div>

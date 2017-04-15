@@ -1,37 +1,33 @@
-<div class="content-tab" id="content-tab">
-	<% posts.each do |post| %>
-    <!-- This is a card partial, but rendering partials is slower than doing this -->
-		<div class="card tab-item">
-			<div class="card-img-top">
-				<div class="card-img-container">
-					<%= link_to image_tag("PlaceholderImage.png"), :class => "card-img"%>
-				</div>
-			</div>
-			<div class="card-block">
-				<h4 class="card-title">
-          <%= post.name %>
-        </h4>
-				<p class="card-text">
-          <%= link_to "Go to Link", post.url %>
-        </p>
-				<p class="card-text">
-          <%= link_to "View Post", post_path(post) %>
-        </p>
-        <% if false %>
-				<p class="card-text">
-          <%= post.description %>
-        </p>
-        <% end %>
-				<p class="card-text">
-          <%= post.rating %>
-        </p>
-				<p class="card-text">
-          <small class="text-muted"> <%= post.submit_time_diff %> </small>
-        </p>
-			</div>
+<% posts.each do |post| %>
+<!-- This is a card partial, but rendering partials is slower than doing this -->
+<div class="card tab-item" id="post-<%=post.id%>">
+	<div class="card-img-top">
+		<div class="card-img-container">
+			<%= link_to image_tag("PlaceholderImage.png"), :class => "card-img"%>
 		</div>
-    <!-- end card -->
-	<% end %>
-
-
+	</div>
+	<div class="card-block">
+		<h4 class="card-title">
+			<%= post.name %>
+		</h4>
+		<p class="card-text">
+			<%= link_to "Go to Link", post.url %>
+		</p>
+		<p class="card-text">
+			<%= link_to "View Post", post_path(post) %>
+		</p>
+		<% if false %>
+		<p class="card-text">
+			<%= post.description %>
+		</p>
+		<% end %>
+		<p class="card-text">
+			<%= post.rating %>
+		</p>
+		<p class="card-text">
+			<small class="text-muted"> <%= post.submit_time_diff %> </small>
+		</p>
+	</div>
 </div>
+<!-- end card -->
+<% end %>
