@@ -1,0 +1,13 @@
+<%= form_for comment, url: post_comments_path(post.id) do |f| %>
+<form>
+    <div class="form-group">
+        <label for="comment">Your Comment</label>
+        <div class="form-group">
+            <%= f.text_area :description, class: "form-control", rows: "3", placeholder: "Comment" %>
+        </div>
+    </div>
+    <div class="form-group actions">
+        <%= f.submit "Send", class: "btn submit-btn" %>
+    </div>
+</form>
+<% end %>

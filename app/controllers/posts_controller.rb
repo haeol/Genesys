@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    render locals: {
+      post: Post.new
+    }
+    #@post = Post.new
   end
 
   # TODO user required before calling
@@ -22,11 +25,13 @@ class PostsController < ApplicationController
     repost = post.copy            # function defined in Post.rb model
     if not repost.save
       render :new, alert: "Error" # TODO does this work?
-    end 
+    end
   end
 
   def show
-    @post = Post.find(params[:id])
+    render locals: {
+        post: Post.find(params[:id])
+    }
   end
 
   def edit
@@ -38,6 +43,7 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  private
   def post_params
     params.require(:post)
           .permit(:url, :rating, :description, :name)

@@ -10,9 +10,9 @@ class Post < ApplicationRecord
   scope :contains, -> (name) {
     where("lower(name) like ?", "%#{name.downcase}%")
   }
-  scope :tag, -> (tag_name) { 
+  scope :tag, -> (tag_name) {
     Tag.find_by_name(tag_name.gsub(/[^0-9a-z ]/i, '').downcase).posts
-  } 
+  }
   scope :tag_id, -> (tag_id) {
     Tag.find(tag_id).posts
   }
@@ -24,6 +24,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :tags
+  has_many :comments
 
   # Creating posts
   def copy(user_id)
@@ -46,7 +47,14 @@ class Post < ApplicationRecord
     end
   end
   # end creating new posts
-  
+
+
+  # Creating comments
+  def new_comment(user)
+    comments.build({user_id: user.id})
+  end
+  # end creating comments
+
 
   # Filtering / Retrieving Tabs
 
@@ -91,6 +99,6 @@ class Post < ApplicationRecord
     "Submitted #{distance_of_time_in_words(self.created_at, Time.now)} ago"
   end
   #end formatted information
-  
+
 
 end

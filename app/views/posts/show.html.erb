@@ -1,20 +1,21 @@
+<!-- TODO this post part is pretty ugly -->
 <div class="media">
   <div class="media-body">
     <h2 class="media-heading">
-			<%= @post.name %>
-		</h2>
+	  <%= post.name %>
+	</h2>
 
-		<%= @post.description %>
-		</br>
-		<%= @post.url %>
-		</br>
-		<p> <%= "#{@post.submit_time_diff} by #{@post.poster}" %> </p>
+	<%= post.description %>
+	</br>
+	<%= post.url %>
+	</br>
+	<p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
 
   </div>
 </div>
 
-
-<% if (youtube_id = @post.youtube?) %>
+<!-- embedded stuff -->
+<% if (youtube_id = post.youtube?) %>
 <object width="640" height="360">
     <param name="movie" value=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%>>
     <param name="allowFullScreen" value="true"/>
@@ -22,4 +23,28 @@
     <embed width="640" height="360" src=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%> class="youtube-player" type="text/html" allowscriptaccess="always" allowfullscreen="true"/>
 </object>
 <% end %>
+<!-- end embedded stuff -->
 
+<div class="container">
+  <div class="post-comments">
+
+    <%= render 'comments/form', post: post, comment: post.new_comment(current_user) %>
+
+    <% post.comments.each do |comment| %>
+
+
+      <div class="media">
+        <%= comment.username %>
+        
+        <div class="media-body">
+          <p> <%= comment.description %> </p>
+        </div>
+      </div>
+
+
+
+    <% end %>
+
+  </div>
+  <!-- post-comments -->
+</div>
