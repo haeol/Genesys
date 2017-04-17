@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 	#resources :pages do
 	#	get "*page" => "pages#show"
 	#end
-  resources :posts#, :path => 'post'
+  resources :posts do#, :path => 'post'
+    resources :comments
+  end
 
 	resources :dashboard, :only => [:index]
 	
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
 	resources :groups, :only => [:index]
 
 	resources :friends, :only => [:index]
+
+  resources :tags, :only => [:index]
 
 	
 	get "/pages/*page" => "pages#show"
