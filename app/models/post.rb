@@ -24,7 +24,10 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :tags
-  has_many :comments
+
+  # in has_many assiciation
+  # :delete_all causes all the associated objects to be deleted directly from the database (so callbacks will not execute)
+  has_many :comments, :dependent => :delete_all
 
   # Creating posts
   def copy(user_id)
@@ -71,7 +74,7 @@ class Post < ApplicationRecord
 
   def embedded_html
     begin
-      OEmbed::Providers.get(self.url).html.html_safe
+      #OEmbed::Providers.get(self.url).html.html_safe
     rescue OEmbed::NotFound
       nil
     end

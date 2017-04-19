@@ -41,6 +41,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    #when delete post, delete related comment first
+    #@comment = Comment.where("post_id=?", @post.id)
+    #@comment.destroy
+    @post.destroy
+
+    if @post.destroyed?
+      redirect_to myprofile_index_path, notice: "Post destroyed"
+    else
+      render :new, alert: "Error" # TODO does this work?
+    end
   end
 
   private
