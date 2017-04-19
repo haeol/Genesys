@@ -7,8 +7,17 @@ $sidebar-text: $white-smoke;
  */
 
  #sidebar-wrapper {
-    overflow-x: hidden;
+    overflow-x: hidden; /* Disable horizontal scroll */
  }
+
+ /* On smaller screens, where height is less than 767px, hide sidebar) */
+@media screen and (max-width: 767px) {
+    /*hide sidebar on mobile devices*/
+    #sidebar-wrapper {display: none;}
+
+/*    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}*/
+}
 
 /* Toggle Styles */
 
