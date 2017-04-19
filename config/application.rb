@@ -12,6 +12,14 @@ module Genesys
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    require 'oembed'
+    # Register all providers
+    OEmbed::Providers.register_all
+    OEmbed::Providers.register_fallback(
+      OEmbed::ProviderDiscovery,
+      OEmbed::Providers::Noembed
+    )
+
     config.autoload_paths << Rails.root.join("lib")
   end
 end

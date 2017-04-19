@@ -18,7 +18,7 @@ class Post < ApplicationRecord
   }
   # end filter params
 
-
+  require 'oembed'
   require 'action_view'
   include ActionView::Helpers::DateHelper
 
@@ -67,6 +67,14 @@ class Post < ApplicationRecord
     #TODO put regular expressions in a module
   def strip_tag(tag)
     tag.gsub(/[^0-9a-z ]/i, '').downcase
+  end
+
+  def embedded_html
+    begin
+      OEmbed::Providers.get(self.url).html.html_safe
+    rescue OEmbed::NotFound
+      nil
+    end
   end
 
   def youtube?
