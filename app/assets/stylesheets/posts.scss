@@ -16,6 +16,15 @@
   }
 }
 
+ /* On smaller screens, where height is less than 767px, recover the margin from the hidden sidebar) */
+@media screen and (max-width: 767px) {
+    /*hide sidebar on mobile devices*/
+    #page-content-wrapper  {margin-left: -$tab-item-width/2;}
+
+/*    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}*/
+}
+
 /* Main Section */
 .survey-section {
   max-width: 100%;
