@@ -2,8 +2,38 @@
 	font-size: 24px;
 	font-weight: bold;
 	color: black;
+	align: center;
 }
 .field {
 	font-size: 16px;
 	
 }
+.login-form {
+	color: black;
+}
+
+.panel-login {
+	position: relative;
+  	align: center;
+ 	width: 500px;
+  	background-color: white;
+  	border: 5px solid #428bca;
+  	
+}
+
+.panel-heading {
+	color: #428bca;
+}
+
+.login-container {
+	position: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	width: 700px;
+	border-radius: 20px;
+	border: 50px solid #428bca;
+}
+
+
