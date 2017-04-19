@@ -36,3 +36,6 @@
 *..using postgres..every time you start the server, you have to start postgres first..*
 > pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start (start the server) <br/>
 > pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop  (stop the server) <br/>
+
+*..updating to heroku..*
+> RAILS_ENV=production bundle exec rake assets:precompile <br/>
