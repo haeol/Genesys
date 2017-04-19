@@ -44,6 +44,8 @@ GEM
     bcrypt (3.1.11)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -173,6 +175,7 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   bootstrap-sass (~> 3.2.0)
+  bootswatch-rails
   byebug
   coffee-rails (~> 4.2)
   devise
