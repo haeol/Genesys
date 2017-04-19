@@ -59,3 +59,5 @@ gem 'devise'
 
 # belongs_to itself
 gem 'ancestry'
+
+gem 'ruby-oembed'
