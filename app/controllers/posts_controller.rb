@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # TODO user required before calling
   def create
     post = current_user.posts.build(post_params)
+    post.add_thumbnail(params[:url])
     post.add_tags(params[:tags])
     if post.save
       redirect_to dashboard_index_path, notice: "Post created"

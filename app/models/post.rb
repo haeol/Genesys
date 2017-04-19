@@ -25,6 +25,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tags
   has_many :comments
+  has_one :thumbnail
 
   # Creating posts
   def copy(user_id)
@@ -44,6 +45,17 @@ class Post < ApplicationRecord
         tag.save
       end
       self.tags << tag
+    end
+  end
+
+  def add_thumbnail(url)
+    begin 
+      thumbnail_url = OEmbed::Providers.get(self.url).thumbnail_url
+    rescue OEmbed::NotFound
+      thumbnail_url = nil
+    end
+    if thumbnail_url
+      build_thumbnail({url: thumbnail_url})
     end
   end
   # end creating new posts
@@ -77,18 +89,14 @@ class Post < ApplicationRecord
     end
   end
 
-  def youtube?
-    #self.url =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/
-    youtube_id = self.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/)
-    if youtube_id
-      youtube_id = youtube_id[1]
+  def thumbnail_image
+    if thumbnail
+      thumbnail.url
+    else
+      "PlaceholderImage.png"
     end
-    youtube_id
   end
 
-  # TODO
-  def soundcloud?
-  end
   # end utility
 
 

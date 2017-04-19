@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417025105) do
+ActiveRecord::Schema.define(version: 20170419193218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 20170417025105) do
     t.string "name"
   end
 
+  create_table "thumbnails", force: :cascade do |t|
+    t.string  "url"
+    t.integer "post_id"
+    t.index ["post_id"], name: "index_thumbnails_on_post_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -76,4 +82,5 @@ ActiveRecord::Schema.define(version: 20170417025105) do
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "tabs", "users"
+  add_foreign_key "thumbnails", "posts"
 end
