@@ -1,9 +1,16 @@
 @import "_variables";
 $cushion: 40px;
 $content-width: $tab-item-width + 2*$tab-item-margin;
-// Place all the styles related to the Tab controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card-text > a, ol, ul, td {
+  color: inherit !important;
+  text-decoration: none !important;
+    
+    &hover{
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
+}
 
 .dashboard {
   width: 100%;

@@ -28,8 +28,13 @@
 }
 
 /* title aka brand */
-.navbar-default .navbar-brand {
-  color: $white !important;
+.navbar-default .navbar-brand > a, ol, ul, td {
+  text-decoration: none !important;
+    
+    &hover{
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
 }
 /* hover text */
 .navbar-default .navbar-brand:hover,
