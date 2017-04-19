@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
 	resources :friends, :only => [:index]
 
-  resources :tags, :only => [:index]
+	resources :tags, :only => [:index]
 
 	
 	get "/pages/*page" => "pages#show"
