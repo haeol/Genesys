@@ -1,27 +1,32 @@
 class Post < ApplicationRecord
 
+  include LinkParser
   include Filterable # located in ./concerns/filterable.rb
 
 	# filter can ONLY take these parameters
   scope :starts_with, -> (name) {
+    where("lower(name) like ?", "#{name.downcase}%")
+  }
+  scope :contains, -> (name) {
     where("lower(name) like ?", "%#{name.downcase}%")
   }
-  scope :tag, -> (tag_name) { 
+  scope :tag, -> (tag_name) {
     Tag.find_by_name(tag_name.gsub(/[^0-9a-z ]/i, '').downcase).posts
-  } 
+  }
   scope :tag_id, -> (tag_id) {
     Tag.find(tag_id).posts
   }
   # end filter params
 
-
+  require 'oembed'
   require 'action_view'
   include ActionView::Helpers::DateHelper
 
   belongs_to :user
   has_and_belongs_to_many :tags
+  has_many :comments
 
-  # Creating new posts
+  # Creating posts
   def copy(user_id)
     post = dup
     post.user_id = user_id
@@ -42,7 +47,14 @@ class Post < ApplicationRecord
     end
   end
   # end creating new posts
-  
+
+
+  # Creating comments
+  def new_comment(user)
+    comments.build({user_id: user.id})
+  end
+  # end creating comments
+
 
   # Filtering / Retrieving Tabs
 
@@ -55,6 +67,14 @@ class Post < ApplicationRecord
     #TODO put regular expressions in a module
   def strip_tag(tag)
     tag.gsub(/[^0-9a-z ]/i, '').downcase
+  end
+
+  def embedded_html
+    begin
+      OEmbed::Providers.get(self.url).html.html_safe
+    rescue OEmbed::NotFound
+      nil
+    end
   end
 
   def youtube?
@@ -87,6 +107,6 @@ class Post < ApplicationRecord
     "Submitted #{distance_of_time_in_words(self.created_at, Time.now)} ago"
   end
   #end formatted information
-  
+
 
 end

@@ -10,6 +10,31 @@ $content-width: $tab-item-width + 2*$tab-item-margin;
   text-align: center;
 }
 
+.dashboard-tabs {
+    white-space: nowrap;
+    height: 5rem;
+    width: auto;/*calc(100% - #{$sidebar-width});*/
+    display: -webkit-box;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-top: 5px;
+    margin-bottom: 10px !important;
+    border-bottom: 1px solid;
+    border-bottom-color: $smoke;
+}
+
+.dashboard-tabs > .active {
+    color: white;
+}
+
+.dashboard-tabs > .active > a {
+    background-color: $lighter !important;
+}
+
+.dashboard-tabs > .nav-item > a:focus {
+    outline: none;
+}
+
 .content-tab {
   overflow: hidden;
   margin: 0 auto;
