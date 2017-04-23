@@ -49,7 +49,7 @@ class Post < ApplicationRecord
   end
 
   def add_thumbnail(url)
-    begin 
+    begin
       thumbnail_url = OEmbed::Providers.get(self.url).thumbnail_url
     rescue OEmbed::NotFound
       thumbnail_url = nil
@@ -112,7 +112,7 @@ class Post < ApplicationRecord
   end
 
   def submit_time_diff
-    "Submitted #{distance_of_time_in_words(self.created_at, Time.now)} ago"
+    "#{distance_of_time_in_words(self.created_at, Time.now)}"
   end
   #end formatted information
 

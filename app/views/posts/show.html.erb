@@ -15,7 +15,9 @@
 </div>
 
 <!-- embedded stuff -->
+<!--
 <%= post.embedded_html %>
+-->
 <!-- end embedded stuff -->
 
 <div class="container">
@@ -25,7 +27,7 @@
     <% post.comments.each do |comment| %>
       <div class="media">
         <%= comment.username %>
-        
+
         <div class="media-body">
           <p> <%= comment.description %> </p>
         </div>

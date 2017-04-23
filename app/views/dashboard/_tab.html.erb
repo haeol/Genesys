@@ -8,13 +8,10 @@
 	</div>
 	<div class="card-block">
 		<h4 class="card-title">
-			<%= post.name %>
+			<%= link_to post.name, post_path(post)%>
 		</h4>
 		<p class="card-text">
 			<%= link_to "Go to Link", post.url %>
-		</p>
-		<p class="card-text">
-			<%= link_to "View Post", post_path(post) %>
 		</p>
 		<% if false %>
 		<p class="card-text">
