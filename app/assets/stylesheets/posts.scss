@@ -7,7 +7,7 @@
 
 .glyphicon {
   background: none;
-  margin: 1em 0em !important;
+  margin: 1em 0em;
   font-size: 2.5em;
   &:hover{
   	background: none;
@@ -96,8 +96,8 @@
   color:#7D2831;
 }
 .sub-title {
-  font-size: .9em; 
-  color: #B4DCEC;  
+  font-size: .9em;
+  color: #B4DCEC;
   margin:0;
 }
 .option{color:#B4DCEC;}

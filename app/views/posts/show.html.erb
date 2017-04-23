@@ -4,6 +4,11 @@
     <h2 class="media-heading">
 	  <%= post.name %>
 	</h2>
+    </br>
+    <!-- embedded stuff -->
+    <%= post.embedded_html %>
+    <!-- end embedded stuff -->
+    </br>
 
 	<%= post.description %>
 	</br>
@@ -14,11 +19,6 @@
   </div>
 </div>
 
-<!-- embedded stuff -->
-<!--
-<%= post.embedded_html %>
--->
-<!-- end embedded stuff -->
 
 <div class="container">
   <div class="post-comments">

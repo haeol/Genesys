@@ -63,3 +63,5 @@ gem 'ancestry'
 gem 'ruby-oembed'
 
 gem 'bootswatch-rails'
+
+gem 'font-awesome-rails'
