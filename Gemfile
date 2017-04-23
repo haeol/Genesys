@@ -61,3 +61,5 @@ gem 'devise'
 gem 'ancestry'
 
 gem 'ruby-oembed'
+
+gem 'bootswatch-rails'

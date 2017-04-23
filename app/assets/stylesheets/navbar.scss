@@ -23,13 +23,13 @@
   border-color: $white-smoke !important;
   -webkit-box-shadow: 0 8px 6px -6px $gray;
   -moz-box-shadow: 0 8px 6px -6px $gray;
-  box-shadow: 0 8px 6px -6px $gray;
+  box-shadow: none; //before change: 0 8px 6px -6px $gray;
 }
 
 /* title aka brand */
 .navbar-default .navbar-brand > a, ol, ul, td {
   text-decoration: none !important;
-    
+
     &hover{
     text-decoration: none !important;
     background-color: transparent !important;
