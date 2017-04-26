@@ -1,5 +1,33 @@
 @import "_variables.scss";
 
+.searchbar .form-control {
+    background-color: $black;
+    color: $smoke;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px $smoke;
+    border-bottom-style: solid;
+}
+
+.searchbar .form-control:focus,
+.searchbar .btn:focus {
+    box-shadow: none !important;
+    outline: none;
+}
+
+.searchbar .glyphicon {
+    margin: 0;
+    font-size: large;
+}
+
+.searchbar .btn {
+    border: 0px;
+    //border-bottom: 1px solid $smoke;
+    padding: 0px 4px 0px 0px;
+    margin-top: 3px;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -17,20 +45,19 @@
   }
 }
 
-
 /* border */
 .navbar-default {
   background-color: $black !important;
   border-color: $white-smoke !important;
   -webkit-box-shadow: 0 8px 6px -6px $gray;
   -moz-box-shadow: 0 8px 6px -6px $gray;
-  box-shadow: 0 8px 6px -6px $gray;
+  box-shadow: none; //before change: 0 8px 6px -6px $gray;
 }
 
 /* title aka brand */
 .navbar-default .navbar-brand > a, ol, ul, td {
   text-decoration: none !important;
-    
+
     &hover{
     text-decoration: none !important;
     background-color: transparent !important;
@@ -218,11 +245,17 @@
 /* title */
 .navbar-brand{
   font-size: 3em !important;
-  color: $white-smoke !important;
+  color: $white-smoke;
   /* Top Right Bottom Left */
-  margin: 0px 0px 0px 0px !important;
-  padding: 14px 8px 0px 0px !important;
+  margin: 0px 0px 0px 0px;
+  padding: 14px 8px 0px 0px;
   width: $sidebar-width;
+  text-align: center;
+}
+
+.navbar-brand > a,
+.navbar-brand > a:hover {
+    color: inherit;
 }
 
 .field{

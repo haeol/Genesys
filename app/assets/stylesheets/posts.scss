@@ -7,13 +7,22 @@
 
 .glyphicon {
   background: none;
-  margin: 1em 0em !important;
+  margin: 1em 0em;
   font-size: 2.5em;
   &:hover{
   	background: none;
   	text-decoration: none;
     color: $primary !important;
   }
+}
+
+ /* On smaller screens, where height is less than 767px, recover the margin from the hidden sidebar) */
+@media screen and (max-width: 767px) {
+    /*hide sidebar on mobile devices*/
+    #page-content-wrapper  {margin-left: -$tab-item-width/2;}
+
+/*    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}*/
 }
 
 /* Main Section */
@@ -87,8 +96,8 @@
   color:#7D2831;
 }
 .sub-title {
-  font-size: .9em; 
-  color: #B4DCEC;  
+  font-size: .9em;
+  color: #B4DCEC;
   margin:0;
 }
 .option{color:#B4DCEC;}

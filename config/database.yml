@@ -4,7 +4,7 @@ default: &default
   timeout: 5000
   adapter: postgresql
   username: genesys
-  password:
+  password: Postgresbnk123
 
 development:
   <<: *default

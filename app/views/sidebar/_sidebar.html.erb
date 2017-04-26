@@ -1,47 +1,57 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
-	<ul class="sidebar-nav">
+  <ul class="sidebar-nav">
 
-		<!--
-		<li class="sidebar-searchbar">
-	    <div class="input-group">
-	      <input type="text" class="form-control" placeholder="Search for...">
-	      <span class="input-group-btn">
-	        <button class="btn btn-default" type="button">Go!</button>
-	      </span>
-	    </div>
-		</li>
-		-->
 
-		<!--
-		<li class="sidebar-brand">
-			<a href="#">
-				Start Bootstrap
-			</a>
-		</li>
-		-->
-		<br></br>
-		<li>
-			<%= link_to "Dashboard", dashboard_index_path %>
-		</li>
-    <% if current_user %>
-    <li>
-      <%= link_to "New Post", new_post_path %>
-    </li>
-		<li>
-			<%= link_to "My Profile", myprofile_index_path %>
-		</li>
-		<li>
-			<%= link_to "Groups", groups_path %>
-		</li>
-		<li>
-			<%= link_to "Friends", friends_path %>
-		</li>
+    <%= link_to dashboard_index_path, class: curr_page(dashboard_index_path) do %>
+  	  <div class="sidebar-dashboard sidebar-container">
+		<i class="fa fa-home fa-3x" aria-hidden="true"></i>
+		<h4>Home</h4>
+	  </div>
     <% end %>
-    <li>
-      <%= link_to "Tags", tags_path %>
-    </li>
-	</ul>
+
+	<% if current_user %>
+	  <%= link_to new_post_path, class: curr_page(new_post_path) do %>
+	  	<div class="sidebar-create-post sidebar-container">
+			<i class="fa fa-lightbulb-o fa-3x" aria-hidden="true"></i>
+			<h4>Make a Post!</h4>
+		</div>
+	  <% end %>
+
+      <%= link_to myprofile_index_path, class: curr_page(myprofile_index_path) do %>
+	  	<div class="sidebar-myprofile sidebar-container">
+			<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+			<h4>My Profile</h4>
+		</div>
+	  <% end %>
+
+      <%= link_to friendships_path, class: curr_page(friendships_path) do %>
+	  	<div class="sidebar-friends sidebar-container">
+			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+			<h4>Friends</h4>
+		</div>
+	  <% end %>
+
+      <%= link_to groups_path, class: curr_page(groups_path) do %>
+	  	<div class="sidebar-groups sidebar-container">
+			<i class="fa fa-users fa-2x" aria-hidden="true"></i>
+			<h4>Groups</h4>
+		</div>
+	  <% end %>
+
+
+    <% end %>
+
+  <%= link_to tags_path, class: curr_page(tags_path) do %>
+  	<div class="sidebar-tags sidebar-container">
+		<i class="fa fa-tags fa-2x" aria-hidden="true"></i>
+		<h4>Tags</h4>
+	</div>
+  <% end %>
+
+	<li> Shortcuts </li>
+  </ul>
 
 </div>
 <!-- /#sidebar-wrapper -->

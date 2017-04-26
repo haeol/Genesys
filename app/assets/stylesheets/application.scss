@@ -13,5 +13,19 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ //Import bootstrap-sprockets
+ @import "bootstrap-sprockets";
+
+ // Import cerulean variables
+ @import "bootswatch/yeti/variables";
+
+ // Then bootstrap itself
+ @import "bootstrap";
+
+ // And finally bootswatch style itself
+ @import "bootswatch/yeti/bootswatch";
+
+ @import "font-awesome";
+
+ // Bootstrap body padding for fixed navbar
+ body { padding-top: 45px; }
