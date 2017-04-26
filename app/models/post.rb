@@ -28,7 +28,8 @@ class Post < ApplicationRecord
   # in has_many assiciation
   # :delete_all causes all the associated objects to be deleted directly from the database (so callbacks will not execute)
   has_many :comments, :dependent => :delete_all
-  has_one :thumbnail
+  has_one :thumbnail, :dependent => :destroy
+
 
 
   # Creating posts
