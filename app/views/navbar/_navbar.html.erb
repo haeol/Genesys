@@ -1,10 +1,7 @@
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-fixed-top">
-  <!--
-  <div class="closed-box"><%= link_to image_tag("genesys_logo_blue.png", :class => "logo pull-left"), '/pages/home' %></div>
-  <div class="open-box"><%= link_to image_tag("genesys_logo_white.png", :class => "logo pull-left"), '/pages/home' %></div>
-  -->
+
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -15,11 +12,6 @@
         <span class="icon-bar bottom-bar"></span>
       </button>
       <!-- brand -->
-      <!--
-      <a class="navbar-brand"><span id="span-brand pull-left">eneSYS</span></a>
-<%= link_to("Curl", root_path, {:class => 'navbar-toggle toggle-left hidden-md hidden-lg', 'data-toggle' => 'sidebar', 'data-target' => ".sidebar-left"} )%>
-
-      -->
 
       <div class="navbar-brand pull-left">
         <%= link_to "Curl", root_path, {:class => '', 'onclick' => 'openNav()'}%>
@@ -31,6 +23,8 @@
       <!-- Left nav buttons -->
       <ul class="nav navbar-nav navbar-searchbar">
 
+        <%= render 'navbar/search-form' %>
+        <% if false %>
         <%= form_tag(dashboard_index_path, :method => "get", id: "search-form") do %>
         <div class="input-group searchbar">
 
@@ -40,22 +34,13 @@
                 <span class="glyphicon glyphicon-search"></span>
               <% end %>
             </div>
-            <%= text_field_tag :starts_with, params[:starts_with], placeholder: "Search . . .", class: "form-control" %>
-
-          <!--
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
-          -->
+            <%= text_field_tag :starts_with, params[:starts_with], placeholder: "#{search_placeholder}", class: "form-control" %>
 
 
         </div><!-- /input-group -->
         <% end %>
-        <!--
-        <li class="active"><%= link_to 'Home', root_path, {:class => 'btn btn-default navbar-btn'} %>
-        <li><%= link_to 'About', '/pages/about', {:class => 'btn btn-default navbar-btn'} %></li>
-        -->
+        <% end %>
+
       </ul>
       <!-- Right nav buttons -->
       <ul class="nav navbar-nav navbar-right">
@@ -76,7 +61,7 @@
 
               <li> <%= link_to "Groups", groups_path, :class => 'btn btn-default navbar-btn visible-xs' %> </li>
 
-              <li> <%= link_to "Friends", friends_path, :class => 'btn btn-default navbar-btn visible-xs' %> </li>
+              <li> <%= link_to "Friends", friendships_path, :class => 'btn btn-default navbar-btn visible-xs' %> </li>
 
             <% end %>
 

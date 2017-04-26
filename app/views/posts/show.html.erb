@@ -1,39 +1,61 @@
 <!-- TODO this post part is pretty ugly -->
-<div class="media">
-  <div class="media-body">
-    <h2 class="media-heading">
-	  <%= post.name %>
-	</h2>
-    </br>
-    <!-- embedded stuff -->
-    <%= post.embedded_html %>
-    <!-- end embedded stuff -->
-    </br>
-
-	<%= post.description %>
-	</br>
-	<%= link_to post.url, post.url %>
-	</br>
-	<p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
-
-  </div>
-</div>
-
-
 <div class="container">
-  <div class="post-comments">
+    <div class="row">
+        <div class="media col-xs-9">
+              <div class="media-body">
+                <h2 class="media-heading">
+            	  <%= post.name %>
+            	</h2>
+                </br>
+                <!-- embedded stuff -->
+                <%= post.embedded_html %>
+                <!-- end embedded stuff -->
+                </br>
 
-    <%= render 'comments/form', post: post, comment: Comment.new %>
-    <% post.comments.each do |comment| %>
-      <div class="media">
-        <%= comment.username %>
+            	<%= post.description %>
+            	</br>
+            	<%= link_to post.url, post.url %>
+            	</br>
+            	<p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
 
-        <div class="media-body">
-          <p> <%= comment.description %> </p>
+              </div>
+
+
+            <div class="container">
+              <div class="post-comments">
+
+                <%= render 'comments/form', post: post, comment: Comment.new %>
+                <% post.comments.each do |comment| %>
+                  <div class="media">
+                    <%= comment.username %>
+
+                    <div class="media-body">
+                      <p> <%= comment.description %> </p>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+              <!-- post-comments -->
+            </div>
         </div>
-      </div>
-    <% end %>
+        <div class="col-xs-3 friends-sidebar-container">
+            <div class="friends-sidebar">
+                <div class="well">
+                    <ul class="nav ">
+                        <h4>Friends!</h4>
+                        <% current_user.friends.each do |friend| %>
+                            <li>
+                            <%= friend.email %>
+                            </li>
+                        <% end %>
 
-  </div>
-  <!-- post-comments -->
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+
+    </div>
 </div>

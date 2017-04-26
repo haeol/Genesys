@@ -1,0 +1,16 @@
+// Place all the styles related to the Friendships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.friends-sidebar-container {
+    display: table;
+}
+
+.friends-sidebar {
+    width: auto;
+    padding: 0px;
+}
+
+.friends-container {
+    color: black !important;
+}

@@ -3,6 +3,13 @@
   <ul class="sidebar-nav">
 
 
+    <%= link_to dashboard_index_path, class: curr_page(dashboard_index_path) do %>
+  	  <div class="sidebar-dashboard sidebar-container">
+		<i class="fa fa-home fa-3x" aria-hidden="true"></i>
+		<h4>Home</h4>
+	  </div>
+    <% end %>
+
 	<% if current_user %>
 	  <%= link_to new_post_path, class: curr_page(new_post_path) do %>
 	  	<div class="sidebar-create-post sidebar-container">
@@ -10,11 +17,6 @@
 			<h4>Make a Post!</h4>
 		</div>
 	  <% end %>
-	<% end %>
-
-
-    <% if current_user %>
-
 
       <%= link_to myprofile_index_path, class: curr_page(myprofile_index_path) do %>
 	  	<div class="sidebar-myprofile sidebar-container">
@@ -23,7 +25,7 @@
 		</div>
 	  <% end %>
 
-      <%= link_to friends_path, class: curr_page(friends_path) do %>
+      <%= link_to friendships_path, class: curr_page(friendships_path) do %>
 	  	<div class="sidebar-friends sidebar-container">
 			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
 			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
