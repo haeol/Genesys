@@ -3,7 +3,7 @@
 <div class="card tab-item" id="post-<%=post.id%>">
 	<div class="card-img-top">
 		<div class="card-img-container">
-			<%= link_to image_tag(post.thumbnail_image), :class => "card-img"%>
+			<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
 		</div>
 	</div>
 	<div class="card-block">
@@ -24,6 +24,9 @@
 		<p class="card-text">
 			<small class="text-muted"> <%= post.submit_time_diff %> </small>
 		</p>
+		<% if current_user == post.user %>
+        	<%= link_to 'delete', post, :method => :delete, data:{ confirm: 'Are you sure?' } %>
+        <% end %>
 	</div>
 </div>
 <!-- end card -->
