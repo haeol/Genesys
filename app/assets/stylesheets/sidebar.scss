@@ -73,7 +73,7 @@ $sidebar-text: $white-smoke;
 }
 
 .sidebar-dashboard {
-    background-color: #3b4193;
+    background-color: $sky;
     color: $white-smoke;
 }
 
@@ -83,22 +83,22 @@ $sidebar-text: $white-smoke;
 }
 
 .sidebar-myprofile {
-    background-color: $aqua;
+    background-color: $dark-blue;
     color: $white-smoke;
 }
 
 .sidebar-friends {
-    background-color: $lime;
+    background-color: $emerald;
     color: $white-smoke;
 }
 
 .sidebar-groups {
-    background-color: $sky;
+    background-color: $purple;
     color: $white-smoke;
 }
 
 .sidebar-tags {
-    background-color: rgb(251, 169, 77);
+    background-color: $orange;
     color: $white-smoke;
 }
 
@@ -110,8 +110,6 @@ $sidebar-text: $white-smoke;
 .sidebar-nav > h3 {
     margin-top: 0px;
 }
-
-
 
 .sidebar-nav {
     position: absolute;
