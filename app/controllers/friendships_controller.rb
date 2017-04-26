@@ -2,10 +2,11 @@ class FriendshipsController < ApplicationController
 
   def index
     friend_feed = current_user.friend_feed
-    p = params.permit(:friend_id)
-    p.each do |key, value|
-      friend_feed = friend_feed.public_send(key, value) if value.present?
-    end
+    friend_feed = friend_feed.where(friend_id: params[:friend_id]) if params[:friend_id].present?
+    #p = params.permit(:friend_id)
+    #p.each do |key, value|
+    #  friend_feed = friend_feed. if value.present?
+    #end
     friend_feed.order("created_at DESC")
 
     render locals: {

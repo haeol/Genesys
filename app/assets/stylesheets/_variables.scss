@@ -9,15 +9,16 @@ $yellow: #f1c40f;
 $gray: #7f8c8d;
 $primary: #65BFE5;
 $secondary: #2c3e50;
-$lighter: #354a5f;
 $midnight: #12131f;
 
 $graphite: #252525;
 
-$bright-red: #f05757;
-$aqua: #88c3c3;
-$lime: #5bbb76;
-$sky: #65a2da;
+$bright-red: #e74c3c;
+$dark-blue: #34495e;
+$emerald: #2ecc71;
+$sky: #3498db;
+$orange: #fba94d;
+$purple: #9b59b6;
 
 
 /* Declaring Variables */
@@ -39,6 +40,10 @@ $navbar-height: 50px;
 /* Sidebar Properties */
 $sidebar-width: 160px;
 
+$sidebar-tab-height: 100px;
+$sidebar-tab-width: auto;
+$sidebar-tab-padding: 15px;
+
 
 /* Tab Item Properties */
 $tab-item-width: 200px;
@@ -47,3 +52,5 @@ $tab-item-margin: 3px;
 
 $card-img-height: 110px;
 $card-block-height: $tab-item-height - $card-img-height
+
+

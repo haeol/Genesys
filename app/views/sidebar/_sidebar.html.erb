@@ -4,7 +4,7 @@
 
 
     <%= link_to dashboard_index_path, class: curr_page(dashboard_index_path) do %>
-  	  <div class="sidebar-dashboard sidebar-container">
+  	  <div class="sidebar-dashboard sidebar-container sidebar-tabs">
 		<i class="fa fa-home fa-3x" aria-hidden="true"></i>
 		<h4>Home</h4>
 	  </div>
@@ -12,21 +12,21 @@
 
 	<% if current_user %>
 	  <%= link_to new_post_path, class: curr_page(new_post_path) do %>
-	  	<div class="sidebar-create-post sidebar-container">
+	  	<div class="sidebar-create-post sidebar-container sidebar-tabs">
 			<i class="fa fa-lightbulb-o fa-3x" aria-hidden="true"></i>
 			<h4>Make a Post!</h4>
 		</div>
 	  <% end %>
 
       <%= link_to myprofile_index_path, class: curr_page(myprofile_index_path) do %>
-	  	<div class="sidebar-myprofile sidebar-container">
+	  	<div class="sidebar-myprofile sidebar-container sidebar-tabs">
 			<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
 			<h4>My Profile</h4>
 		</div>
 	  <% end %>
 
       <%= link_to friendships_path, class: curr_page(friendships_path) do %>
-	  	<div class="sidebar-friends sidebar-container">
+	  	<div class="sidebar-friends sidebar-container sidebar-tabs">
 			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
 			  <i class="fa fa-user fa-2x" aria-hidden="true"></i>
 			<h4>Friends</h4>
@@ -34,7 +34,7 @@
 	  <% end %>
 
       <%= link_to groups_path, class: curr_page(groups_path) do %>
-	  	<div class="sidebar-groups sidebar-container">
+	  	<div class="sidebar-groups sidebar-container sidebar-tabs">
 			<i class="fa fa-users fa-2x" aria-hidden="true"></i>
 			<h4>Groups</h4>
 		</div>
@@ -44,7 +44,7 @@
     <% end %>
 
   <%= link_to tags_path, class: curr_page(tags_path) do %>
-  	<div class="sidebar-tags sidebar-container">
+  	<div class="sidebar-tags sidebar-container sidebar-tabs">
 		<i class="fa fa-tags fa-2x" aria-hidden="true"></i>
 		<h4>Tags</h4>
 	</div>
