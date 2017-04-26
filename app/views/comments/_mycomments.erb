@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="post-comments">
+	<% if current_user %>
+		<% current_user.comments.order(created_at: :DESC).each do |comment| %>
+		  <div class="media">
+		    <div class="media-body">
+		      <p> <%= link_to comment.post.name, post_path(comment.post.id)%> </p>
+		      <p> <%= comment.description %> </p>
+		    </div>
+		  </div>
+		<% end %>
+	<% end %>
+	</div>
+</div>

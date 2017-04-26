@@ -1,5 +1,17 @@
-<h2> Your posts </h2>
-<div id="dashboard" class="dashboard">
-<!-- TODO use the profile controller -->
-<%= render "dashboard/tab", :posts => current_user.viewableposts %>
+<ul class="nav nav-tabs">
+	<li class="active"><a data-toggle="tab" href="#myposts">My posts</a></li>
+	<li><a data-toggle="tab" href="#mycomments">My comments</a></li>
+</ul>
+<div class="tab-content">
+	<div id="myposts" class="tab-pane fade in active">
+		<div id="dashboard" class="dashboard">
+		<!-- TODO use the profile controller -->
+		<%= render "dashboard/tab", :posts => current_user.viewableposts %>
+		</div>
+	</div>
+	<div id="mycomments" class="tab-pane fade">
+		<!-- my comments -->
+		<%= render "comments/mycomments" %>
+		<!-- end my comments -->
+	</div>
 </div>
