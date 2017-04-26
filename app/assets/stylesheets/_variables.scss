@@ -45,12 +45,16 @@ $sidebar-tab-width: auto;
 $sidebar-tab-padding: 15px;
 
 
+$card-img-height: 100px;
+$card-block-height: 100px;
+
 /* Tab Item Properties */
-$tab-item-width: 200px;
-$tab-item-height: 300px;
+$tab-item-width: 250px;
+//$tab-item-height: 350px;
+$tab-item-height: $card-block-height + $card-img-height;
 $tab-item-margin: 3px;
 
-$card-img-height: 110px;
-$card-block-height: $tab-item-height - $card-img-height
 
 
+$cushion: 40px;
+$content-width: $tab-item-width + 2*$tab-item-margin;

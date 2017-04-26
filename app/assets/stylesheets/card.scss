@@ -21,10 +21,8 @@
 }
 
 .card-block {
-  //padding: 1.25rem;
   height: $card-block-height;
-  width: 250px;
-  height: 100px;
+  padding: 1.25rem;
 }
 
 .card-block::after {
