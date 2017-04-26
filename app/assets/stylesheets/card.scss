@@ -7,11 +7,24 @@
   background-color: #fff;
   border-radius: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  height:300px !important;
 }
 
 .card-block {
   //padding: 1.25rem;
   height: $card-block-height;
+  width: 250px;
+  height: 100px;
 }
 
 .card-block::after {
@@ -27,6 +40,7 @@
 .card-title {
   font-size: 16px;
   margin-bottom: 0.75rem;
+  margin-top: -90px;
 }
 
 .card-subtitle {
