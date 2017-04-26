@@ -28,8 +28,8 @@ class Post < ApplicationRecord
   # in has_many assiciation
   # :delete_all causes all the associated objects to be deleted directly from the database (so callbacks will not execute)
   has_many :comments, :dependent => :delete_all
-  has_one :thumbnail
-
+  has_one :thumbnail, :dependent => :destroy
+  has_one :embedded_html, :dependent => :destroy
 
   # Creating posts
   def copy(user_id)
@@ -52,7 +52,7 @@ class Post < ApplicationRecord
     end
   end
 
-  def add_thumbnail(url)
+  def add_thumbnail
     begin
       thumbnail_url = OEmbed::Providers.get(self.url).thumbnail_url
     rescue OEmbed::NotFound
@@ -60,6 +60,17 @@ class Post < ApplicationRecord
     end
     if thumbnail_url
       build_thumbnail({url: thumbnail_url})
+    end
+  end
+
+  def add_html
+    begin
+      html = OEmbed::Providers.get(self.url).html.html_safe
+    rescue OEmbed::NotFound
+      html = nil
+    end
+    if html
+      build_embedded_html({html: html})
     end
   end
   # end creating new posts
@@ -85,19 +96,27 @@ class Post < ApplicationRecord
     tag.gsub(/[^0-9a-z ]/i, '').downcase
   end
 
-  def embedded_html
-    begin
-      #OEmbed::Providers.get(self.url).html.html_safe
-    rescue OEmbed::NotFound
-      nil
-    end
-  end
+  #def embedded_html
+  #  begin
+  #    OEmbed::Providers.get(self.url).html.html_safe
+  #  rescue OEmbed::NotFound
+  #    nil
+  #  end
+  #end
 
   def thumbnail_image
     if thumbnail
       thumbnail.url
     else
       "PlaceholderImage.png"
+    end
+  end
+
+  def html
+    if self.embedded_html
+      self.embedded_html.html
+    else
+      nil
     end
   end
 
