@@ -7,8 +7,17 @@ $sidebar-text: $white-smoke;
  */
 
  #sidebar-wrapper {
-    overflow-x: hidden;
+    overflow-x: hidden; /* Disable horizontal scroll */
  }
+
+ /* On smaller screens, where height is less than 767px, hide sidebar) */
+@media screen and (max-width: 767px) {
+    /*hide sidebar on mobile devices*/
+    #sidebar-wrapper {display: none;}
+
+/*    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}*/
+}
 
 /* Toggle Styles */
 
@@ -57,6 +66,53 @@ $sidebar-text: $white-smoke;
 
 /* Sidebar Styles */
 
+.sidebar-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.sidebar-dashboard {
+    background-color: #3b4193;
+    color: $white-smoke;
+}
+
+.sidebar-create-post {
+    background-color: $bright-red;
+    color: $white-smoke;
+}
+
+.sidebar-myprofile {
+    background-color: $aqua;
+    color: $white-smoke;
+}
+
+.sidebar-friends {
+    background-color: $lime;
+    color: $white-smoke;
+}
+
+.sidebar-groups {
+    background-color: $sky;
+    color: $white-smoke;
+}
+
+.sidebar-tags {
+    background-color: rgb(251, 169, 77);
+    color: $white-smoke;
+}
+
+.current .sidebar-container {
+    background-color: white;
+    color: $secondary;
+}
+
+.sidebar-nav > h3 {
+    margin-top: 0px;
+}
+
+
+
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -64,6 +120,11 @@ $sidebar-text: $white-smoke;
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.sidebar-nav a:hover {
+    text-decoration: underline;
+    color: white;
 }
 
 .sidebar-nav li {

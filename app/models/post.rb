@@ -28,6 +28,8 @@ class Post < ApplicationRecord
   # in has_many assiciation
   # :delete_all causes all the associated objects to be deleted directly from the database (so callbacks will not execute)
   has_many :comments, :dependent => :delete_all
+  has_one :thumbnail
+
 
   # Creating posts
   def copy(user_id)
@@ -47,6 +49,17 @@ class Post < ApplicationRecord
         tag.save
       end
       self.tags << tag
+    end
+  end
+
+  def add_thumbnail(url)
+    begin
+      thumbnail_url = OEmbed::Providers.get(self.url).thumbnail_url
+    rescue OEmbed::NotFound
+      thumbnail_url = nil
+    end
+    if thumbnail_url
+      build_thumbnail({url: thumbnail_url})
     end
   end
   # end creating new posts
@@ -80,18 +93,14 @@ class Post < ApplicationRecord
     end
   end
 
-  def youtube?
-    #self.url =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/
-    youtube_id = self.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/)
-    if youtube_id
-      youtube_id = youtube_id[1]
+  def thumbnail_image
+    if thumbnail
+      thumbnail.url
+    else
+      "PlaceholderImage.png"
     end
-    youtube_id
   end
 
-  # TODO
-  def soundcloud?
-  end
   # end utility
 
 
@@ -107,7 +116,7 @@ class Post < ApplicationRecord
   end
 
   def submit_time_diff
-    "Submitted #{distance_of_time_in_words(self.created_at, Time.now)} ago"
+    "#{distance_of_time_in_words(self.created_at, Time.now)}"
   end
   #end formatted information
 

@@ -1,47 +1,69 @@
 <!-- TODO this post part is pretty ugly -->
-<div class="media">
-  <div class="media-body">
-    <h2 class="media-heading">
-	  <%= post.name %>
-	</h2>
-
-	<%= post.description %>
-	</br>
-	<%= link_to post.url, post.url %>
-	</br>
-	<p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
-
-  </div>
-</div>
-
-<!-- embedded stuff -->
-<%= post.embedded_html %>
-<% if false %>
-<% if (youtube_id = post.youtube?) %>
-<object width="640" height="360">
-    <param name="movie" value=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%>>
-    <param name="allowFullScreen" value="true"/>
-    <param name="allowscriptaccess" value="always"/>
-    <embed width="640" height="360" src=<%="http://www.youtube.com/embed/#{youtube_id}?html5=1&amp;rel=0&amp;hl=en_US&amp;version=3"%> class="youtube-player" type="text/html" allowscriptaccess="always" allowfullscreen="true"/>
-</object>
-<% end %>
-<% end %>
-<!-- end embedded stuff -->
-
 <div class="container">
-  <div class="post-comments">
+    <div class="row">
+        <div class="media col-xs-9">
+              <div class="media-body">
+                <h2 class="media-heading">
+            	  <%= post.name %>
+            	</h2>
+                </br>
+                <!-- embedded stuff -->
+                <%= post.embedded_html %>
+                <!-- end embedded stuff -->
+                </br>
 
-    <%= render 'comments/form', post: post, comment: Comment.new %>
-    <% post.comments.each do |comment| %>
-      <div class="media">
-        <%= comment.username %>
-        
-        <div class="media-body">
-          <p> <%= comment.description %> </p>
+            	<%= post.description %>
+            	</br>
+            	<%= link_to post.url, post.url %>
+            	</br>
+            	<p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
+
+              </div>
+
+
+            <div class="container">
+              <div class="post-comments">
+
+                <%= render 'comments/form', post: post, comment: Comment.new %>
+                <% post.comments.each do |comment| %>
+                  <div class="media">
+                    <%= comment.username %>
+
+                    <div class="media-body">
+                      <p> <%= comment.description %> </p>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+              <!-- post-comments -->
+            </div>
         </div>
-      </div>
-    <% end %>
+        <div class="col-xs-3 friends-sidebar-container">
+            <div class="friends-sidebar">
+                <div class="well">
+                    <ul class="nav ">
+                        <h4>Share with Friends</h4>
+                        <%= form_for :friend_feed, :url => friend_feeds_path(friend_id: current_user, post_id: post.id), method: :post do |f| %>
+                            <% current_user.friends.each do |friend| %>
+                                <li>
+                                <div class="btn-group">
+                                <%= check_box_tag "friends[]", friend.id, false, class: "btn btn-default" %>
+                                <div class="label label-default">
+                                <%= friend.email %>
+                                </div>
+                                </li>
+                            <% end %>
 
-  </div>
-  <!-- post-comments -->
+                            <%= f.submit "Share", class: "btn btn-default"%>
+                        <% end %>
+
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+
+    </div>
 </div>

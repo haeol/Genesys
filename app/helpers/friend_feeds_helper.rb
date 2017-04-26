@@ -1,0 +1,2 @@
+module FriendFeedsHelper
+end

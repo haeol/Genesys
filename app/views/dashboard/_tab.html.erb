@@ -3,18 +3,15 @@
 <div class="card tab-item" id="post-<%=post.id%>">
 	<div class="card-img-top">
 		<div class="card-img-container">
-			<%= link_to image_tag("PlaceholderImage.png"), post_path(post), :class => "card-img"%>
+			<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
 		</div>
 	</div>
 	<div class="card-block">
 		<h4 class="card-title">
-			<%= post.name %>
+			<%= link_to post.name, post_path(post)%>
 		</h4>
 		<p class="card-text">
 			<%= link_to "Go to Link", post.url %>
-		</p>
-		<p class="card-text">
-			<%= link_to "View Post", post_path(post) %>
 		</p>
 		<% if false %>
 		<p class="card-text">

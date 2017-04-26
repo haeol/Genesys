@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
 	resources :groups, :only => [:index]
 
-	resources :friends, :only => [:index]
+	resources :friendships
+
+  resources :friend_feeds
 
 	resources :tags, :only => [:index]
 

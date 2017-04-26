@@ -2,10 +2,17 @@
 $cushion: 40px;
 $content-width: $tab-item-width + 2*$tab-item-margin;
 
+/*
+body{
+    background-color: $white !important;
+    padding-top: 45px !important;
+}
+*/
+
 .card-text > a, ol, ul, td {
   color: inherit !important;
   text-decoration: none !important;
-    
+
     &hover{
     text-decoration: none !important;
     background-color: transparent !important;
@@ -53,6 +60,17 @@ $content-width: $tab-item-width + 2*$tab-item-margin;
   margin: $tab-item-margin;
   display: table;
   float: left;
+}
+
+ /* On smaller screens, where width is less than 767px, hide sidebar */
+@media screen and (max-width: 767px) {
+    /*hide sidebar on mobile devices*/
+    .content-tab, .dashboard-tabs{
+    margin-left: -$tab-item-width;
+  }
+
+/*    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}*/
 }
 
 @media only screen and (max-width: $sidebar-width + $cushion + 2*$content-width) {
