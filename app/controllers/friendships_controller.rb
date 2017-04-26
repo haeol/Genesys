@@ -1,6 +1,16 @@
 class FriendshipsController < ApplicationController
 
-  def show
+  def index
+    friend_feed = current_user.friend_feed
+    p = params.permit(:friend_id)
+    p.each do |key, value|
+      friend_feed = friend_feed.public_send(key, value) if value.present?
+    end
+    friend_feed.order("created_at DESC")
+
+    render locals: {
+      feed: friend_feed
+    }
   end
 
 
@@ -30,6 +40,5 @@ class FriendshipsController < ApplicationController
 		flash[:notice] = "Removed friendship."
 		redirect_to :back
   end
-
-
+  
 end

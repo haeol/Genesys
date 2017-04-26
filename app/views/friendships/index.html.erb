@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-10">
             <div class="jumbotron">
-                <h1>Users!</h1>
+                <h2>Users you're not friends with!</h2>
                 <ul>
                 <% current_user.strangers.each do |user| %>
                   <li>
@@ -12,13 +12,21 @@
                 <% end %>
                 </ul>
 
-                <h1>Friend requests!</h1>
+                <h2>Friend requests!</h2>
                 <ul>
                 <% current_user.pending_requests.each do |request| %>
                     <li>
                       <%= request.sender.email %>
                       <%= link_to "Accept",  friendship_path(id: request.id), method: :put %>
                       <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
+                    </li>
+                <% end %>
+                </ul>
+                <h2>Posts your friends want you to see</h2>
+                <ul>
+                <% feed.each do |shared| %>
+                    <li>
+                        <%= link_to "#{shared.post.name} from #{shared.friend_name}", post_path(shared.post.id) %>
                     </li>
                 <% end %>
                 </ul>
@@ -32,9 +40,7 @@
                     <ul class="nav ">
                         <h4>Friends!</h4>
                         <% current_user.friends.each do |friend| %>
-                            <li>
-                            <%= friend.email %>
-                            </li>
+                            <%= link_to friend.email, friendships_path(friend_id: friend.id) %>
                         <% end %>
 
                     </ul>

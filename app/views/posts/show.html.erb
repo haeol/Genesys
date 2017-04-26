@@ -43,11 +43,19 @@
             <div class="friends-sidebar">
                 <div class="well">
                     <ul class="nav ">
-                        <h4>Friends!</h4>
-                        <% current_user.friends.each do |friend| %>
-                            <li>
-                            <%= friend.email %>
-                            </li>
+                        <h4>Share with Friends</h4>
+                        <%= form_for :friend_feed, :url => friend_feeds_path(friend_id: current_user, post_id: post.id), method: :post do |f| %>
+                            <% current_user.friends.each do |friend| %>
+                                <li>
+                                <div class="btn-group">
+                                <%= check_box_tag "friends[]", friend.id, false, class: "btn btn-default" %>
+                                <div class="label label-default">
+                                <%= friend.email %>
+                                </div>
+                                </li>
+                            <% end %>
+
+                            <%= f.submit "Share", class: "btn btn-default"%>
                         <% end %>
 
                     </ul>

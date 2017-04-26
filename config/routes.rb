@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
 	resources :friendships
 
+  resources :friend_feeds
+
 	resources :tags, :only => [:index]
 
 	
