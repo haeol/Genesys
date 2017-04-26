@@ -12,6 +12,10 @@
 	color: black;
 }
 
+.panel-body{
+
+}
+
 .panel-login {
 	position: relative;
   	align: center;
@@ -26,7 +30,6 @@
 }
 
 .login-container {
-	position: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	padding-left: 50px;
@@ -34,6 +37,7 @@
 	width: 700px;
 	border-radius: 20px;
 	border: 50px solid #428bca;
+	margin: auto;
 }
 
 
