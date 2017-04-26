@@ -40,6 +40,10 @@ $navbar-height: 50px;
 /* Sidebar Properties */
 $sidebar-width: 160px;
 
+$sidebar-tab-height: 100px;
+$sidebar-tab-width: auto;
+$sidebar-tab-padding: 15px;
+
 
 /* Tab Item Properties */
 $tab-item-width: 200px;
@@ -48,3 +52,5 @@ $tab-item-margin: 3px;
 
 $card-img-height: 110px;
 $card-block-height: $tab-item-height - $card-img-height
+
+

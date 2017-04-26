@@ -68,13 +68,18 @@ $sidebar-text: $white-smoke;
 
 .sidebar-container {
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 10px;
+}
+
+.sidebar-tabs{
+    padding-top: $sidebar-tab-padding;
+    height: $sidebar-tab-height;
+    width: $sidebar-tab-width;
 }
 
 .sidebar-dashboard {
     background-color: $sky;
     color: $white-smoke;
+   
 }
 
 .sidebar-create-post {
