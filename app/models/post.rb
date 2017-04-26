@@ -114,7 +114,7 @@ class Post < ApplicationRecord
 
   def html
     if self.embedded_html
-      self.embedded_html.html
+      self.embedded_html.html.html_safe
     else
       nil
     end
