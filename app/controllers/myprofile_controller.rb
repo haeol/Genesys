@@ -1,14 +1,18 @@
 class MyprofileController < ApplicationController
-   def show
-      if valid_page?
-	render template: "myprofile/#{params[:page]}"
-      else
-        render file: "public/404.html", status: :not_found
-      end
-    end
+  def index
+    posts = current_user.viewableposts.filter(params.slice(:starts_with))
+    comments = current_user.comments.order(created_at: :DESC).filter(params.slice(:starts_with));
+    render locals: {
+      posts: posts,
+      comments: comments
+    }
+  end
 
-    private
-    def valid_page?
-      File.exist?(Pathname.new(Rails.root + "app/views/myprofile/#{params[:page]}.html.erb"))
-    end
+  def show
+    render locals: {
+      posts: User.find(params[:id]).viewableposts,
+      comments: User.find(params[:id]).comments.order(created_at: :DESC)
+    }
+  end
+
 end

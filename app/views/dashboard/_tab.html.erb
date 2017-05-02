@@ -24,9 +24,6 @@
 		<p class="card-text">
 			<small class="text-muted"> <%= post.submit_time_diff %> </small>
 		</p>
-		<% if current_user == post.user %>
-        	<%= link_to 'delete', post, :method => :delete, data:{ confirm: 'Are you sure?' } %>
-        <% end %>
 	</div>
 </div>
 <!-- end card -->

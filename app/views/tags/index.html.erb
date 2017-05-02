@@ -4,13 +4,17 @@
 		<h1 class="page-header">All Tags</h1>
 	</div>
 
-	<% Tag.all.limit(50).each do |tag| %>
+	<% tags.each do |tag| %>
 		<div class="col-lg-3 col-md-4 col-xs-6 thumb">
-			<div class="thumbnail text-center">
-				<img class="img-responsive" src="http://placehold.it/400x300" alt="">
-				<div class="caption">
-					<p><%= tag.name %></p>
-				</div>
+			<div class="thumbnail tag-thumbnail text-center">
+        <%= link_to tag_path(tag) do %>
+          <%= image_tag(tag.image) %>
+          <div class="caption-background">
+            <div class="tag-caption">
+              <p><%= tag.name %></p>
+            </div>
+          </div>
+        <% end %>
 			</div>
 		</div>
 	<% end %>

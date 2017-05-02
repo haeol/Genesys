@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :friend_feeds
 
-	resources :tags, :only => [:index]
+	resources :tags, :only => [:index, :show]
 
 	
 	get "/pages/*page" => "pages#show"
