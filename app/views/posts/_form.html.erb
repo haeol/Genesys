@@ -42,13 +42,31 @@
 
           <tr>
             <td colspan="2">
-            <div class="form-group">
-
-            <label for="input-2" class="control-label">Rate This</label>
-    <input id="input-2" name="input-2" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
-
+             <div class="stars">
+                  <form action="">
+                    <!--<%= radio_button_tag(:'star-5', "5", class: "star star-1") %>   
+                       <label class="star star-1" for="star-5"></label>
+                    <%= radio_button_tag(:'star', "4", class: "star star-4") %>   
+                       <label class="star" for="star-4"></label>
+                    <%= radio_button_tag(:'star', "3", class: "star star-3") %>   
+                       <label class="star" for="star-3"></label>
+                    <%= radio_button_tag(:'star', "2", class: "star star-2") %>   
+                       <label class="star" for="star-2"></label>
+                    <%= radio_button_tag(:'star', "1", class: "star star-1") %>   
+                       <label class="star" for="star-1"></label>-->
+                    <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+                      <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+                      <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+                      <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+                      <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+                      <label class="star star-1" for="star-1"></label>
+                  </form>
+                </div>
             </td>
-            </div>
           </tr>
 
           <tr>
