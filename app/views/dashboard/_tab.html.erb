@@ -10,9 +10,7 @@
 		<h4 class="card-title">
 			<%= link_to post.name, post_path(post)%>
 		</h4>
-		<p class="card-text">
-			<%= link_to "Go to Link", post.url %>
-		</p>
+		
 		<% if false %>
 		<p class="card-text">
 			<%= post.description %>
@@ -22,7 +20,8 @@
 			<%= post.rating %>
 		</p>
 		<p class="card-text">
-			<small class="text-muted"> <%= post.submit_time_diff %> </small>
+			<small class="text-muted"> <%= "#{post.submit_time_diff} by #{post.poster}" %></small>
+		</p>
 		</p>
 	</div>
 </div>
