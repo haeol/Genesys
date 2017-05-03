@@ -1,33 +1,31 @@
-<% posts.each do |post| %>
-<!-- This is a card partial, but rendering partials is slower than doing this -->
-<div class="card tab-item" id="post-<%=post.id%>">
-	<div class="card-img-top">
-		<div class="card-img-container">
-			<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
+<div id="myposts" class="tab-pane fade in active">
+    <div id="dashboard" class="dashboard">
+    <% posts.each do |post| %>
+		<!-- This is a card partial, but rendering partials is slower than doing this -->
+		<div class="card tab-item" id="post-<%=post.id%>">
+			<div class="card-img-top">
+				<div class="card-img-container">
+					<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
+				</div>
+			</div>
+			<div class="card-block">
+				<h4 class="card-title">
+					<%= link_to post.name, post_path(post)%>
+				</h4>
+				<% if false %>
+				<p class="card-text">
+					<%= post.description %>
+				</p>
+				<% end %>
+				<p class="card-text">
+					<%= post.rating %>
+				</p>
+				<p class="card-text">
+					<small class="text-muted"> <%= post.submit_time_diff %> </small>
+				</p>
+			</div>
 		</div>
-	</div>
-	<div class="card-block">
-		<h4 class="card-title">
-			<%= link_to post.name, post_path(post)%>
-		</h4>
-		<p class="card-text">
-			<%= link_to "Go to Link", post.url %>
-		</p>
-		<% if false %>
-		<p class="card-text">
-			<%= post.description %>
-		</p>
-		<% end %>
-		<p class="card-text">
-			<%= post.rating %>
-		</p>
-		<p class="card-text">
-			<small class="text-muted"> <%= post.submit_time_diff %> </small>
-		</p>
-		<% if current_user == post.user %>
-        	<%= link_to 'delete', post, :method => :delete, data:{ confirm: 'Are you sure?' } %>
-        <% end %>
+		<!-- end card -->
+	<% end %>
 	</div>
 </div>
-<!-- end card -->
-<% end %>

@@ -29,7 +29,6 @@
                         <% end %>
                         </ul>
                     </div>
-
                 </div>
                 <!--/span-->
                 <div class="col-md-2 friends-sidebar-container">
@@ -55,35 +54,36 @@
     </div>
     <div id="sharedToMe" class="tab-pane fade">
         <!-- shared to me -->
-        <% feed.each do |shared| %>
-            <div class="card tab-item" id="post-<%=shared.post.id%>">
-                <div class="card-img-top">
-                    <div class="card-img-container">
-                        <%= link_to image_tag(shared.post.thumbnail_image), post_path(shared.post), :class => "card-img"%>
+        <div id="myposts" class="tab-pane fade in active">
+            <div id="dashboard" class="dashboard">
+            <% feed.each do |shared| %>
+                <div class="card tab-item" id="post-<%=shared.post.id%>">
+                    <div class="card-img-top">
+                        <div class="card-img-container">
+                            <%= link_to image_tag(shared.post.thumbnail_image), post_path(shared.post), :class => "card-img"%>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            <%= link_to shared.post.name, post_path(shared.post)%>
+                            <p>from <%= shared.friend_name %>
+                        </h4>
+                        <% if false %>
+                        <p class="card-text">
+                            <%= shared.post.description %>
+                        </p>
+                        <% end %>
+                        <p class="card-text">
+                            <%= shared.post.rating %>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted"> <%= shared.post.submit_time_diff %> </small>
+                        </p>
                     </div>
                 </div>
-                <div class="card-block">
-                    <h4 class="card-title">
-                        <%= link_to shared.post.name, post_path(shared.post)%>
-                        <p>from <%= shared.friend_name %>
-                    </h4>
-                    <p class="card-text">
-                        <%= link_to "Go to Link", shared.post.url %>
-                    </p>
-                    <% if false %>
-                    <p class="card-text">
-                        <%= shared.post.description %>
-                    </p>
-                    <% end %>
-                    <p class="card-text">
-                        <%= shared.post.rating %>
-                    </p>
-                    <p class="card-text">
-                        <small class="text-muted"> <%= shared.post.submit_time_diff %> </small>
-                    </p>
-                </div>
+            <% end %>
             </div>
-        <% end %>
+        </div>
         <!-- end shared to me -->
     </div>
 </div>
