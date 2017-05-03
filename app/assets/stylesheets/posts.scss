@@ -12,7 +12,7 @@
   &:hover{
   	background: none;
   	text-decoration: none;
-    color: $primary !important;
+    color: #3498db !important;
   }
 }
 
@@ -58,7 +58,7 @@
   margin: 0;
   padding: .5em;
   color: white;
-  background-color: $primary;
+  background-color: #3498db;
 }
 
 /* Survey formatting */
@@ -155,5 +155,5 @@
   border-style: none;
   padding: .75em 1em;
   color: #white;
-  background-color: $primary;
+  background-color: #3498db;
 }
