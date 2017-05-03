@@ -27,4 +27,8 @@ class Tag < ApplicationRecord
     end
   end
 
+  def self.default_tags
+    ["Music", "Movie", "TV", "Video"]
+  end
+
 end
