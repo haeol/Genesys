@@ -10,9 +10,6 @@
 		<h4 class="card-title">
 			<%= link_to post.name, post_path(post)%>
 		</h4>
-		<p class="card-text">
-			<%= link_to "Go to Link", post.url %>
-		</p>
 		<% if false %>
 		<p class="card-text">
 			<%= post.description %>
@@ -24,7 +21,9 @@
 		<p class="card-text">
 			<small class="text-muted"> <%= post.submit_time_diff %> </small>
 		</p>
+	<div class="card-delete">
     <%= link_to 'delete', post, :method => :delete, data:{ confirm: 'Are you sure?' } %>
+    </div>
 	</div>
 </div>
 <!-- end card -->

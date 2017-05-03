@@ -13,6 +13,9 @@
 }
 
 .tag-caption {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
     position: absolute;
     padding: auto;
     top: 37.5%;
@@ -31,5 +34,5 @@
 }
 
 .caption-background:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.3);
 }
