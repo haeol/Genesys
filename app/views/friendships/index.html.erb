@@ -1,56 +1,89 @@
-
-<div class="container friends-container">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="jumbotron">
-                <h2>Users you're not friends with!</h2>
-                <ul>
-                <% current_user.strangers.each do |user| %>
-                  <li>
-                    <%= link_to "Add " + user.email, friendships_path(friend_id: user), method: :post %>
-                  </li>
-                <% end %>
-                </ul>
-
-                <h2>Friend requests!</h2>
-                <ul>
-                <% current_user.pending_requests.each do |request| %>
-                    <li>
-                      <%= request.sender.email %>
-                      <%= link_to "Accept",  friendship_path(id: request.id), method: :put %>
-                      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
-                    </li>
-                <% end %>
-                </ul>
-                <h2>Posts your friends want you to see</h2>
-                <ul>
-                <% feed.each do |shared| %>
-                    <li>
-                        <%= link_to "#{shared.post.name} from #{shared.friend_name}", post_path(shared.post.id) %>
-                    </li>
-                <% end %>
-                </ul>
-            </div>
-
-        </div>
-        <!--/span-->
-        <div class="col-md-2 friends-sidebar-container">
-            <div class="friends-sidebar">
-                <div class="well">
-                    <ul class="nav ">
-                        <h4>Friends!</h4>
-                        <% current_user.friends.each do |friend| %>
-                            <%= link_to friend.email, friendships_path(friend_id: friend.id) %>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#myNotifications">My Notification</a></li>
+    <li><a data-toggle="tab" href="#sharedToMe">Shared to me</a></li>
+</ul>
+<div class="tab-content">
+    <div id="myNotifications" class="tab-pane fade in active">
+        <!-- notification list -->
+        <div class="container friends-container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="jumbotron">
+                        <h2>Users you're not friends with!</h2>
+                        <ul>
+                        <% current_user.strangers.each do |user| %>
+                          <li>
+                            <%= link_to "Add " + user.email, friendships_path(friend_id: user), method: :post %>
+                          </li>
                         <% end %>
+                        </ul>
 
-                    </ul>
+                        <h2>Friend requests!</h2>
+                        <ul>
+                        <% current_user.pending_requests.each do |request| %>
+                            <li>
+                              <%= request.sender.email %>
+                              <%= link_to "Accept",  friendship_path(id: request.id), method: :put %>
+                              <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
+                            </li>
+                        <% end %>
+                        </ul>
+                    </div>
+
                 </div>
-                <!--/.well -->
+                <!--/span-->
+                <div class="col-md-2 friends-sidebar-container">
+                    <div class="friends-sidebar">
+                        <div class="well">
+                            <ul class="nav ">
+                                <h4>Friends!</h4>
+                                <% current_user.friends.each do |friend| %>
+                                    <%= link_to friend.email, friendships_path(friend_id: friend.id) %>
+                                <% end %>
+
+                            </ul>
+                        </div>
+                        <!--/.well -->
+                    </div>
+                    <!--/sidebar-nav-fixed -->
+                </div>
+                <!--/span-->
             </div>
-            <!--/sidebar-nav-fixed -->
+            <!--/row-->
         </div>
-        <!--/span-->
+        <!-- end notification list -->
     </div>
-    <!--/row-->
+    <div id="sharedToMe" class="tab-pane fade">
+        <!-- shared to me -->
+        <% feed.each do |shared| %>
+            <div class="card tab-item" id="post-<%=shared.post.id%>">
+                <div class="card-img-top">
+                    <div class="card-img-container">
+                        <%= link_to image_tag(shared.post.thumbnail_image), post_path(shared.post), :class => "card-img"%>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <%= link_to shared.post.name, post_path(shared.post)%>
+                        <p>from <%= shared.friend_name %>
+                    </h4>
+                    <p class="card-text">
+                        <%= link_to "Go to Link", shared.post.url %>
+                    </p>
+                    <% if false %>
+                    <p class="card-text">
+                        <%= shared.post.description %>
+                    </p>
+                    <% end %>
+                    <p class="card-text">
+                        <%= shared.post.rating %>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted"> <%= shared.post.submit_time_diff %> </small>
+                    </p>
+                </div>
+            </div>
+        <% end %>
+        <!-- end shared to me -->
+    </div>
 </div>
-<!--/.fluid-container-->
