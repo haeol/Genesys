@@ -1,8 +1,9 @@
 class TagsController < ApplicationController
 
   def index
+    tags = Tag.filter(params.slice(:starts_with))
     render locals: {
-      tags: Tag.all.limit(50)
+      tags: tags#Tag.all.limit(50)
     }
   end
 

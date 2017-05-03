@@ -108,7 +108,7 @@ class Post < ApplicationRecord
     if thumbnail
       thumbnail.url
     else
-      "PlaceholderImage.png"
+      "ColoredVinylePH.png"
     end
   end
 
