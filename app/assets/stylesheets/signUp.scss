@@ -1,32 +1,54 @@
-.col-xs-6 {
-	font-size: 24px;
+.login {
+	padding-top: 20px;
+}
+
+.login-tab {
+	color: white;
+	font-size: 25px;
 	font-weight: bold;
-	color: black;
-	align: center;
 }
+
+.login-tab:hover {
+	color: white;
+}
+
 .field {
-	font-size: 16px;
-	
+	font-size: 20px;
+	margin-top: -10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
+
+.field-label {
+	color: white;
+}
+
+.forgot > a {
+    color: white !important;
+}
+
+.label {
+	font-size: 18px;
+}
+
 .login-form {
-	color: black;
-}
-
-.panel-body{
-
+	color: white;
 }
 
 .panel-login {
 	position: relative;
   	align: center;
- 	width: 500px;
-  	background-color: white;
-  	border: 5px solid #428bca;
-  	
+ 	width: 400px;
 }
 
-.panel-heading {
-	color: #428bca;
+.login-pass {
+	color:white;
+	font-size: 12px;
+}
+
+.actions {
+	color: black;
+	padding-bottom: 5px;
 }
 
 .login-container {
@@ -34,10 +56,9 @@
 	padding-bottom: 50px;
 	padding-left: 50px;
 	padding-right: 50px;
-	width: 700px;
-	border-radius: 20px;
-	border: 50px solid #428bca;
+	width: 600px;
 	margin: auto;
+	background-color: #3498db;
 }
 
 

@@ -1,11 +1,12 @@
+<div class="login">
 <div class="login-container">
     <div class="panel-heading">
         <div class="row">
             <div class="col-xs-6">
-                <a href="" id="login-form-link">LOG IN</a>
+                <a class="login-tab" href="" id="login-form-link">LOG IN</a>
             </div>
             <div class="col-xs-6">
-                <a href="/users/sign_up" id="register-form-link">REGISTER</a>
+                <a class="login-tab" href="/users/sign_up" id="register-form-link">REGISTER</a>
             </div>
         </div>
         <hr>
@@ -16,12 +17,16 @@
                 <div class="login-form">
                     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <div class="field">
+                        <div class="field-label">
                         <%= f.label :login %><br />
+                        </div>
                         <%= f.text_field :login, autofocus: true %>
                     </div>
 
                     <div class="field">
+                        <div class="field-label">
                         <%= f.label :password %><br />
+                        </div>
                         <%= f.password_field :password, autocomplete: "off" %>
                     </div>
 
@@ -36,13 +41,14 @@
                         <%= f.submit "Log in" %>
                     </div>
                     <% end %>
-
                     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                    <div class="forgot">
+                      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                    </div>
                     <% end -%>
-
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
