@@ -10,6 +10,6 @@ class Comment < ApplicationRecord
   }
 
   def username
-    user.email
+    user.username
   end
 end

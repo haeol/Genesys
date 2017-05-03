@@ -126,12 +126,12 @@ class Post < ApplicationRecord
   # Formatted information
   def original_poster
     # TODO change this to username instead of email once username implemented
-    User.find(self.original_poster_id).email
+    User.find(self.original_poster_id).username
   end
 
   def poster
     # TODO change this to username instead of email once username implemented
-    self.user.email
+    self.user.username
   end
 
   def submit_time_diff

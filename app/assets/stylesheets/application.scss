@@ -27,5 +27,10 @@
 
  @import "font-awesome";
 
+ @import "_variables";
+
  // Bootstrap body padding for fixed navbar
- body { padding-top: 45px; }
+ body { 
+ padding-top: 45px; 
+ color: $black;
+ }
