@@ -2,6 +2,12 @@ class Tag < ApplicationRecord
 
   has_and_belongs_to_many :posts
 
+  include Filterable
+
+  scope :starts_with, -> (name) {
+    where("lower(name) like ?", "%#{name.downcase}%")
+  }
+
   def capital_name
     name.titleize
   end
