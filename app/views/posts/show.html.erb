@@ -1,28 +1,40 @@
 <!-- TODO this post part is pretty ugly -->
-<%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
-<div class="container">
+<div class="content-tab">
     <div class="row">
         <div class="media col-xs-9">
+                <%= link_to :back do %>
+                  <span class="glyphicon glyphicon-circle-arrow-left back-button pull-left"></span>
+                <% end %>
               <div class="media-body">
-                  <%= link_to '', :back, {:href => post.url, :target => '_blank', :class => 'glyphicon glyphicon-link'} %>
-                  <span class="post-heading">
-                  <%= post.name %> </span>
+                <%= link_to post.url do %>
+                  <span class="glyphicon glyphicon-link"></span>
+                <% end %>
+                <span class="post-heading"> <%= post.name %> </span>
+                <div class="post-html">
+                  <%= post.html %>
+                </div>
+                <div class="post-description">
+                  <p> <%= post.description %> <p>
+                </div>
+                  <small class="text-muted">
+                    <%= "Submitted #{post.submit_time_diff} ago by #{post.poster}" %>
+                  </small>
               </div>
 
 
-            <div class="container">
+            <div class="content-tab">
               <div class="post-comments">
 
                 <% if current_user %>
                     <%= render 'comments/form', post: post, comment: Comment.new %>
                 <% end %>
-                <% post.comments.each do |comment| %>
                 <!--<div class="container">
                 <div class="row">-->
                 <div class="col-md-8">
                   <h2 class="page-header">
                   <i class="fa fa-sticky-note" aria-hidden="true"></i>Comments</h2>
                     <section class="comment-list">
+                      <% post.comments.each do |comment| %>
                       <!-- First Comment -->
                       <article class="row">
                         <div class="col-md-2 col-sm-2 hidden-xs">
@@ -36,7 +48,7 @@
                             <div class="panel-body">
                               <header class="text-left">
                                 <div class="comment-user"><i class="fa fa-user" aria-hidden="true"></i> <%= comment.username %> </div>
-                                <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= "#{post.submit_time_diff} by #{post.poster}" %></time>
+                                <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= "#{comment.submit_time_diff} ago" %></time>
                               </header>
                               <div class="comment-post">
                                 <i class="fa fa-comment comment-post"></i>
@@ -47,11 +59,11 @@
                           </div>
                         </div>
                       </article>
+                      <% end %>
                     </section>
                 </div>
 
 
-                <% end %>
 
               </div>
               <!-- post-comments -->

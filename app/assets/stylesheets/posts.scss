@@ -6,10 +6,30 @@
   width: 50% !important;
 }
 
+.back-button {
+    top: $navbar-height !important;
+    left: $sidebar-width !important;
+    padding: 25px;
+    position: fixed !important;
+}
 
-.glyphicon {
+.media-body {
+    padding-top: 10px;
+}
+
+.post-html {
+    text-align: center;
+}
+
+.post-description {
+    background-color: rgb(199, 213, 230);
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.media .glyphicon {
   background: none;
-  margin: 1em 0em;
   font-size: 2.5em;
   &:hover{
   	text-decoration: none;
@@ -163,7 +183,7 @@
 }
 
 .post-heading{
-  margin-left: 1%; 
+  margin-left: 1%;
   font-size: 36px;
 }
 
