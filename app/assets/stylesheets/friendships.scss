@@ -14,3 +14,8 @@
 .friends-container {
     color: black;
 }
+
+/* remove ul bullet points */
+.jumbotron > ul {
+ list-style-type: none;
+}

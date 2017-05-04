@@ -58,7 +58,7 @@
 .navbar-default .navbar-brand > a, ol, ul, td {
   text-decoration: none !important;
 
-    &hover{
+    &:hover{
     text-decoration: none !important;
     background-color: transparent !important;
   }

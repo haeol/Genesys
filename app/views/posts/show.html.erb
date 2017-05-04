@@ -1,23 +1,12 @@
 <!-- TODO this post part is pretty ugly -->
+<%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
 <div class="container">
     <div class="row">
         <div class="media col-xs-9">
               <div class="media-body">
-                <h2 class="media-heading">
-                  <%= post.name %>
-                </h2>
-                </br>
-                <!-- embedded stuff -->
-                <%= post.html %>
-                <!-- end embedded stuff -->
-                </br>
-
-                <%= post.description %>
-                </br>
-                <%= link_to post.url, post.url %>
-                </br>
-                <p> <%= "#{post.submit_time_diff} by #{post.poster}" %> </p>
-
+                  <%= link_to '', :back, {:href => post.url, :target => '_blank', :class => 'glyphicon glyphicon-link'} %>
+                  <span class="post-heading">
+                  <%= post.name %> </span>
               </div>
 
 
@@ -31,7 +20,8 @@
                 <!--<div class="container">
                 <div class="row">-->
                 <div class="col-md-8">
-                  <h2 class="page-header">Comments</h2>
+                  <h2 class="page-header">
+                  <i class="fa fa-sticky-note" aria-hidden="true"></i>Comments</h2>
                     <section class="comment-list">
                       <!-- First Comment -->
                       <article class="row">
@@ -45,13 +35,12 @@
                           <div class="panel panel-default arrow left">
                             <div class="panel-body">
                               <header class="text-left">
-                                <div class="comment-user"><i class="fa fa-user"></i> <%= comment.username %> </div>
+                                <div class="comment-user"><i class="fa fa-user" aria-hidden="true"></i> <%= comment.username %> </div>
                                 <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> <%= "#{post.submit_time_diff} by #{post.poster}" %></time>
                               </header>
                               <div class="comment-post">
-                                <p>
+                                <i class="fa fa-comment comment-post"></i>
                                   <%= comment.description %>
-                                </p>
                               </div>
                             <!-- <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p> -->
                             </div>

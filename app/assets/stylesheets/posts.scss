@@ -3,16 +3,17 @@
 /* Style for each input line */
 .form-control{
 	border-radius: 0px !important;
+  width: 50% !important;
 }
+
 
 .glyphicon {
   background: none;
   margin: 1em 0em;
   font-size: 2.5em;
   &:hover{
-  	background: none;
   	text-decoration: none;
-    color: #3498db !important;
+    color: $sky !important;
   }
 }
 
@@ -120,6 +121,9 @@
 .profile-table td {
   background-color: $black;
   padding: 5px 10px 5px 10px;
+  &:hover{
+    background-color: $black !important;
+  }
   /*padding: .75rem;*/
 }
 
@@ -137,7 +141,7 @@
 }
 
 .container {
-  color:  #B4DCEC;
+  color:  $black;
   padding: 1em;
 }
 
@@ -156,4 +160,14 @@
   padding: .75em 1em;
   color: #white;
   background-color: #3498db;
+}
+
+.post-heading{
+  margin-left: 1%; 
+  font-size: 36px;
+}
+
+/* Awesome fonts */
+.fa{
+  margin-right: 1%;
 }

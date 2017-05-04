@@ -13,7 +13,7 @@
                         <ul>
                         <% current_user.strangers.each do |user| %>
                           <li>
-                            <%= link_to "Add " + user.email, friendships_path(friend_id: user), method: :post %>
+                            <%= link_to "Add " + user.username, friendships_path(friend_id: user), method: :post %>
                           </li>
                         <% end %>
                         </ul>
