@@ -14,7 +14,7 @@ class FriendFeed < ApplicationRecord
   end
 
   def friend_name
-    User.find(friend_id).email
+    User.find(friend_id).username
   end
 
 end

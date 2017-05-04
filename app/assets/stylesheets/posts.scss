@@ -15,6 +15,10 @@
 
 .media-body {
     padding-top: 10px;
+
+    > a:hover{
+      text-decoration: none;
+    }
 }
 
 .post-html {
@@ -22,10 +26,11 @@
 }
 
 .post-description {
-    background-color: rgb(199, 213, 230);
+    background-color: $white;
     padding: 5px;
     border: 1px solid;
     border-radius: 5px;
+    width: 100%;
 }
 
 .media .glyphicon {
@@ -190,4 +195,15 @@
 /* Awesome fonts */
 .fa{
   margin-right: 1%;
+}
+.btn-group{
+  background-color: $gray;
+}
+
+.btn-one{
+  background-color: $gray;
+}
+
+ .btn-one:hover, .btn-one:focus, .btn-one:active, .btn-one.active, .open > .btn-one.dropdown-toggle {
+  background-color: $sky !important;
 }

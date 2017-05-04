@@ -6,7 +6,7 @@
                   <span class="glyphicon glyphicon-circle-arrow-left back-button pull-left"></span>
                 <% end %>
               <div class="media-body">
-                <%= link_to post.url do %>
+                <%= link_to post.url, :target => '_blank' do %>
                   <span class="glyphicon glyphicon-link"></span>
                 <% end %>
                 <span class="post-heading"> <%= post.name %> </span>
@@ -16,7 +16,7 @@
                 <div class="post-description">
                   <p> <%= post.description %> <p>
                 </div>
-                  <small class="text-muted">
+                  <small class="text-muted pull-right">
                     <%= "Submitted #{post.submit_time_diff} ago by #{post.poster}" %>
                   </small>
               </div>
@@ -80,8 +80,8 @@
                                 <li>
                                 <div class="btn-group" data-toggle="buttons">
 
-                                <label class="btn btn-primary">
-                                <%= check_box_tag "friends[]", friend.id, false, class: "btn btn-default"%>
+                                <label class="btn btn-one">
+                                <%= check_box_tag "friends[]", friend.id, false, class: "btn btn-one"%>
                                 <%= friend.username %>
                                 </label>
                                 </div>
@@ -89,7 +89,7 @@
                                 </li>
                             <% end %>
 
-                            <%= f.submit "Share", class: "btn btn-default"%>
+                            <%= f.submit "Share", class: "btn btn-one"%>
                         <% end %>
 
                     </ul>
