@@ -31,20 +31,20 @@
           <tr>
             <td colspan="2">
             <div class="form-group">
-              <%= f.text_field :name, class: "form-control", placeholder: "Title" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Title", :required => true %>
               </div>
               </tr>
 
             <td colspan="2">
               <div class="form-group">
-              <%= f.text_field :url, class: "form-control", placeholder: "Link" %>
+              <%= f.text_field :url, class: "form-control", placeholder: "Link", :required => true %>
               </div>
           </tr>
 
           <tr>
             <td colspan="2">
              <div class="stars">
-                  <form action="">
+                  <form action="" required>
                     <input class="star star-5" id="star-5" type="radio" name="post[rating]" value="5"/>
                       <label class="star star-5" for="star-5"></label>
                     <input class="star star-4" id="star-4" type="radio" name="post[rating]" value="4"/>
@@ -71,7 +71,7 @@
                    </label>
                  <% end %>
                  </div>
-                 <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Additional tags . . ." %>
+                 <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Additional tags . . ." , :required => true%>
 
             </td>
             </div>
