@@ -34,8 +34,9 @@
 }
 
 .media .glyphicon {
+  margin: 5px; 
   background: none;
-  font-size: 2.5em;
+  font-size: 2.5em !important;
   &:hover{
   	text-decoration: none;
     color: $sky !important;

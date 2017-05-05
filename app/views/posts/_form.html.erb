@@ -1,6 +1,10 @@
+  <div class="media col-xs-9">
+  <%= link_to :back do %>
+  <span class="glyphicon glyphicon-circle-arrow-left back-button pull-left"></span>
+  <% end %>
+  </div>
 <%= form_for post do |f| %>
   <!-- display any errors -->
-  <%= link_to '', :back, {:class => 'glyphicon glyphicon-circle-arrow-left'} %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
