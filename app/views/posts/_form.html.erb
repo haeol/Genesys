@@ -44,8 +44,8 @@
           <tr>
             <td colspan="2">
              <div class="stars">
-                  <form action="" required>
-                    <input class="star star-5" id="star-5" type="radio" name="post[rating]" value="5"/>
+                 <form action="" >
+                    <input class="star star-5" id="star-5" type="radio" name="post[rating]" value="5" required/>
                       <label class="star star-5" for="star-5"></label>
                     <input class="star star-4" id="star-4" type="radio" name="post[rating]" value="4"/>
                       <label class="star star-4" for="star-4"></label>
@@ -66,12 +66,12 @@
                 <div class="btn-group" data-toggle="buttons">
                  <% Tag.default_tags.each do |tag| %>
                     <label class="btn btn-primary">
-                       <%= radio_button_tag 'default_tag', tag, false, class: "btn btn-default"%>
+                       <%= radio_button_tag 'default_tag', tag, false, class: "btn btn-default", :required => true %>
                        <%= tag %>
                    </label>
                  <% end %>
                  </div>
-                 <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Additional tags . . ." , :required => true%>
+                 <%= text_field_tag 'tags', nil, class: "form-control", placeholder: "Additional tags . . ." %>
 
             </td>
             </div>
