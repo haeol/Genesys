@@ -8,7 +8,7 @@
 			<%= link_to post_path(post) do %>
 	        <span class="glyphicon glyphicon-eye-open pull-left"></span>
 			<% end %>
-	    	<%= link_to ' ', post, :class => 'glyphicon glyphicon-remove-sign pull-right', :method => :delete, data:{ confirm: 'Are you sure?' } %>
+	    	<%= link_to ' ', post, :class => 'glyphicon glyphicon-trash pull-right', :method => :delete, data:{ confirm: 'Are you sure?' } %>
 	    	<div class="text"> 
 	    	<%= post.description %>
 			</div>
