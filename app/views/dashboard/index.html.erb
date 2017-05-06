@@ -11,6 +11,10 @@
 		<% end %>
 	</ul>
 	<div class="content-tab" id="content-tab">
-		<%= render "dashboard/tab", :posts => posts %>
+		<%= render "dashboard/tab", :posts => @posts %>
 	</div>
+</div>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @posts%>
 </div>

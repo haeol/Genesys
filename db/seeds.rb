@@ -10,8 +10,8 @@ require 'csv'
 require 'pp' #TODO debugging
 
 # HOW TO RUN
-# rake db:seed ENV_NAME=yes
-# example: rake db:seed movie=yes will run the EVN["movie"] portion
+# rake db:seed {environment-name}=yes
+# example: rake db:seed movie=yes will run the ENV["movie"] portion
 
 
 if ENV["movie"]
