@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
 	# filter can ONLY take these parameters
   scope :starts_with, -> (name) {
-    where("lower(name) like ?", "#{name.downcase}%")
+    where("lower(name) like ?", "%#{name.downcase}%")
   }
   scope :contains, -> (name) {
     where("lower(name) like ?", "%#{name.downcase}%")
