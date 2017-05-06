@@ -78,20 +78,23 @@ body{
 }
 
 .tab-item:hover .overlay {
-  opacity: 0.65;
+  //opacity: 0.65;
+  color: rgba(0, 0, 0, .3);
   height: 100%;
 }
 
 .text {
-  white-space: nowrap; 
-  color: white;
-  font-size: 20px;
+  white-space: wrap; 
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
   position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  overflow-y: hidden;
+  top: 2em;
+  left: 0;
+  padding: 15px;
+  text-align: center;
+  //transform: translate(-50%, -50%);
+  //-ms-transform: translate(-50%, -50%);
 }
 
  /* On smaller screens, where width is less than 767px, hide sidebar */
