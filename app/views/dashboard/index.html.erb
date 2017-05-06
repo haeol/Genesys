@@ -9,7 +9,7 @@
 				<%= link_to "#{tag.capital_name}", dashboard_index_path(tag_id: tag.id), remote: true %>
 			</li>
 		<% end %>
-	</ul>
+  </ul>
 	<div class="content-tab" id="content-tab">
 		<%= render "dashboard/tab", :posts => posts %>
 	</div>

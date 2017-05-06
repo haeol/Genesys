@@ -2,9 +2,12 @@ class DashboardController < ApplicationController
 
   def index
     posts = Post.filter(params.slice(:name, :tag, :tag_id, :starts_with)).limit(50)
+    default = Tab.default
+    tags = Tag.all.limit(20) - default
+    tags = default | tags
     render locals: {
       posts: posts,
-      tags: Tag.all.limit(20)# TODO trending or defaults
+      tags: tags# TODO trending or defaults
     }
     
     respond_to do |format|
