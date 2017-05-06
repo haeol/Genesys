@@ -4,6 +4,18 @@
 		<!-- This is a card partial, but rendering partials is slower than doing this -->
 		<div class="card tab-item" id="post-<%=post.id%>">
 			<div class="card-img-top">
+
+      <div class="overlay">
+        <div class="media card-delete">
+          <%= link_to post_path(post) do %>
+            <span class="glyphicon glyphicon-eye-open pull-left"></span>
+          <% end %>
+        </div>
+        <div class="text"> 
+          <%= post.description %>
+        </div>
+      </div>
+
 				<div class="card-img-container">
 					<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
 				</div>

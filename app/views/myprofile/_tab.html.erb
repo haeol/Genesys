@@ -3,6 +3,7 @@
 <!-- This is a card partial, but rendering partials is slower than doing this -->
 <div class="card tab-item" id="post-<%=post.id%>">
 	<div class="card-img-top">
+
 	<div class="overlay">
 		<div class="media card-delete">
 			<%= link_to post_path(post) do %>
@@ -10,15 +11,16 @@
 			<% end %>
 	    	<%= link_to ' ', post, :class => 'glyphicon glyphicon-trash pull-right', :method => :delete, data:{ confirm: 'Are you sure?' } %>
 	    	<div class="text"> 
-	    	<%= post.description %>
-			</div>
+          <%= post.description %>
+        </div>
     	</div>
-    </div>
+  </div>
 		
 		<div class="card-img-container">
 			<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
 		</div>
 	</div>
+
 	<div class="card-block">
 		<h4 class="card-title">
 			<%= post.name %>
