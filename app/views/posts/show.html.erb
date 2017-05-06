@@ -73,13 +73,12 @@
         <div class="col-xs-3 friends-sidebar-container">
             <div class="friends-sidebar">
                 <div class="well">
-                    <ul class="nav ">
+                    <ul class="nav">
                         <h4>Share with Friends</h4>
                         <%= form_for :friend_feed, :url => friend_feeds_path(friend_id: current_user, post_id: post.id), method: :post do |f| %>
                             <% current_user.friends.each do |friend| %>
                                 <li>
                                 <div class="btn-group" data-toggle="buttons">
-
                                 <label class="btn btn-one">
                                 <%= check_box_tag "friends[]", friend.id, false, class: "btn btn-one"%>
                                 <%= friend.username %>

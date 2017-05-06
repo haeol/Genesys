@@ -34,3 +34,17 @@
  padding-top: 45px;
  background-color: $white-smoke;
  }
+
+/* Remove underline for awesome fonts */
+ .fa {
+
+ 	&:hover{
+ 		text-decoration: none;
+ 	}
+ }
+
+ .glyphicon {
+ 	&:hover{
+ 		text-decoration: none;
+ 	}
+ }
