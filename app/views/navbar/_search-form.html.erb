@@ -8,6 +8,7 @@
         <span class="glyphicon glyphicon-search"></span>
       <% end %>
     </div>
+    <%= hidden_field_tag :location, params[:location] %>
     <%= text_field_tag :starts_with, params[:starts_with], placeholder: "#{search_placeholder}", class: "form-control" %>
 
 </div><!-- /input-group -->

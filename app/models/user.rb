@@ -4,10 +4,15 @@ class User < ApplicationRecord
 
    # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
+  include Filterable
+  scope :starts_with, -> (username) {
+    where("lower(username) like ?", "%#{username.downcase}%")
+  }
+
   attr_accessor :login
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, 
+         :recoverable, :rememberable, :trackable,
          :validatable, :authentication_keys => [:login]
 
   validates :username,

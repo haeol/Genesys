@@ -1,0 +1,10 @@
+<h1 class="page-header">Friend Requests</h1>
+<div class="well">
+<% notifications.each do |request| %>
+    <ul>
+    <%= link_to request.sender.username, myprofile_path(request.sender.id) %>
+    <%= link_to ' ',  friendship_path(id: request.id), :class => 'fa fa-check',  method: :put %>
+    <%= link_to ' ',  friendship_path(id: request.id), :class => 'fa fa-minus-circle  ',  method: :delete %>
+    </ul>
+<% end %>
+</div>

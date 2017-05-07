@@ -1,18 +1,35 @@
 class FriendshipsController < ApplicationController
 
   def index
-    friend_feed = current_user.friend_feed
-    friend_feed = friend_feed.where(friend_id: params[:friend_id]) if params[:friend_id].present?
-    #p = params.permit(:friend_id)
-    #p.each do |key, value|
-    #  friend_feed = friend_feed. if value.present?
-    #end
-    friend_feed.order("created_at DESC")
+	location = params[:location] ? params[:location] : "friendfeed"
+
+	feed = []
+	users = []
+	notifs = []
+	friends = []
+	if location == "findusers"
+		users = current_user.strangers.filter(params.slice(:starts_with))
+	elsif location == "notifications"
+		notifs = current_user.pending_requests
+	elsif location == "friends"
+		friends = current_user.friends
+	else
+		location = "friendfeed"
+	    feed = current_user.friend_feed
+	    feed = friend_feed.where(friend_id: params[:friend_id]) if params[:friend_id].present?
+	    feed.order("created_at DESC")
+	end
 
     render locals: {
-      feed: friend_feed
+      feed: feed,
+	  users: users,
+	  notifications: notifs,
+	  friends: friends,
+      location: location
     }
   end
+
+
 
 
   def create
@@ -41,5 +58,5 @@ class FriendshipsController < ApplicationController
 		flash[:notice] = "Removed friendship."
 		redirect_to :back
   end
-  
+
 end

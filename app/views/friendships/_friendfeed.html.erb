@@ -1,0 +1,38 @@
+
+<div class="content-tab" id="content-tab">
+<% feed.each do |shared| %>
+
+    <div class="card tab-item" id="post-<%=shared.post.id%>">
+    	<div class="card-img-top">
+
+        <div class="overlay">
+          <div class="media card-delete">
+            <%= link_to post_path(shared.post) do %>
+                <span class="glyphicon glyphicon-eye-open pull-left"></span>
+            <% end %>
+          </div>
+          <div class="text">
+            <%= shared.post.description %>
+          </div>
+        </div>
+
+    		<div class="card-img-container">
+    			<%= link_to image_tag(shared.post.thumbnail_image), post_path(shared.post), :class => "card-img"%>
+    		</div>
+    	</div>
+    	<div class="card-block">
+    		<h4 class="card-title">
+    			<%= link_to shared.post.name, post_path(shared.post)%>
+    		</h4>
+
+    		<p class="card-text">
+    			<%= shared.post.rating %>
+    		</p>
+    		<p class="card-text">
+    			<small class="text-muted"> <%= "#{shared.post.submit_time_diff} by #{shared.post.poster}, shared by #{shared.friend_name}" %></small>
+    		</p>
+    	</div>
+    </div>
+
+<% end %>
+</div>

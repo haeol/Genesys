@@ -1,0 +1,8 @@
+<% comments.each do |comment| %>
+    <div class="media">
+        <div class="media-body">
+            <p> <%= link_to comment.post.name, post_path(comment.post.id)%> </p>
+            <p> <%= comment.description %> </p>
+        </div>
+    </div>
+<% end %>

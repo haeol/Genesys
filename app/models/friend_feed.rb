@@ -13,6 +13,10 @@ class FriendFeed < ApplicationRecord
     Post.find(post_id)
   end
 
+  def postname
+    post.name
+  end
+
   def friend_name
     User.find(friend_id).username
   end

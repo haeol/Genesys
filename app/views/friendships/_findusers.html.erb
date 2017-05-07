@@ -1,0 +1,9 @@
+<h1 class="page-header">Suggested friends</h1>
+<div class="well">
+<ul>
+<% users.each do |user| %>
+    <%= link_to ' ', friendships_path(friend_id: user), :class => 'fa fa-user-plus fa-2x pull-left',  method: :post %>
+    <p> <%= link_to user.username, myprofile_path(user.id) %> </p>
+<% end %>
+</ul>
+</div>

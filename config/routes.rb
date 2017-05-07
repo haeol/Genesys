@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 	resources :dashboard, :only => [:index]
 	
-	resources :myprofile, :only => [:index]
+	resources :myprofile, :only => [:index, :show]
 
 	resources :groups, :only => [:index]
 

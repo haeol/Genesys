@@ -1,0 +1,44 @@
+<div class="content-tab">
+<% posts.each do |post| %>
+<!-- This is a card partial, but rendering partials is slower than doing this -->
+<div class="card tab-item" id="post-<%=post.id%>">
+	<div class="card-img-top">
+
+	<div class="overlay">
+		<div class="media card-delete">
+			<%= link_to post_path(post) do %>
+	        <span class="glyphicon glyphicon-eye-open pull-left"></span>
+			<% end %>
+	    	<%= link_to ' ', post, :class => 'glyphicon glyphicon-trash pull-right', :method => :delete, data:{ confirm: 'Are you sure?' } %>
+	    	<div class="text">
+          <%= post.description %>
+        </div>
+    	</div>
+  </div>
+
+		<div class="card-img-container">
+			<%= link_to image_tag(post.thumbnail_image), post_path(post), :class => "card-img"%>
+		</div>
+	</div>
+
+	<div class="card-block">
+		<h4 class="card-title">
+			<%= post.name %>
+		</h4>
+		<% if false %>
+		<p class="card-text">
+			<%= post.description %>
+		</p>
+		<% end %>
+		<p class="card-text">
+			<%= post.rating %>
+		</p>
+		<p class="card-text">
+			<small class="text-muted"> <%= post.submit_time_diff %> </small>
+		</p>
+
+	</div>
+</div>
+<!-- end card -->
+<% end %>
+</div>

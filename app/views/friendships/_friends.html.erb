@@ -1,0 +1,13 @@
+
+<h1 class="page-header">Friends</h1>
+<div class="well">
+    <ul class="nav ">
+        <% current_user.friends.each do |friend| %>
+        <ul>
+        <%= link_to friend.username, myprofile_path(id: friend.id) %>
+        </ul>
+        <% end %>
+
+    </ul>
+</div>
+<!--/.well -->
