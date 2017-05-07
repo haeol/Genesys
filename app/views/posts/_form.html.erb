@@ -70,7 +70,7 @@
                 <div class="btn-group" data-toggle="buttons">
                  <% Tag.default_tags.each do |tag| %>
                     <label class="btn btn-primary">
-                       <%= radio_button_tag 'default_tag', tag, false, class: "btn btn-default", :required => true %>
+                       <%= radio_button_tag 'default_tag', tag, false, class: "btn btn-default", :required => false %>
                        <%= tag %>
                    </label>
                  <% end %>

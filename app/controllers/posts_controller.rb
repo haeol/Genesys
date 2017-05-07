@@ -14,8 +14,12 @@ class PostsController < ApplicationController
   def create
     puts params.inspect
     post = current_user.posts.build(post_params)
-    post.add_tags(params[:tags])
-    post.add_tags(params[:default_tag])
+    if (params[:tags])
+        post.add_tags(params[:tags])
+    end
+    if (params[:default_tag])
+        post.add_tags(params[:default_tag])
+    end
     post.add_thumbnail
     post.add_html
     if post.save
