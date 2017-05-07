@@ -1,29 +1,8 @@
+<h1 class="page-header"><%=user.username%></h1>
 
-<ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#myposts">SOMEUSERS posts</a></li>
-	<li><a data-toggle="tab" href="#mycomments">SOMEUSERS comments</a></li>
-</ul>
-<div class="tab-content">
-	<div id="myposts" class="tab-pane fade in active">
-		<div id="dashboard" class="dashboard">
-		<!-- TODO use the profile controller -->
-		<%= render "tab", :posts => posts %>
-		</div>
-	</div>
-	<div id="mycomments" class="tab-pane fade">
-		<!-- my comments -->
-		<div class="container">
-			<div class="post-comments">
-			<% comments.each do |comment| %>
-				<div class="media">
-					<div class="media-body">
-						<p> <%= link_to comment.post.name, post_path(comment.post.id)%> </p>
-						<p> <%= comment.description %> </p>
-					</div>
-				</div>
-			<% end %>
-			</div>
-		</div>
-		<!-- end my comments -->
-	</div>
+<div class="btn-group">
+  <%= link_to "Posts", myprofile_path(id: user, location: "posts"), class:"btn btn-primary"%>
+  <%= link_to "Comments", myprofile_path(id: user, location: "comments"), class:"btn btn-primary"%>
 </div>
+
+<%= render location, posts: posts, comments: comments %>

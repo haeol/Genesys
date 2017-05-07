@@ -9,15 +9,20 @@ class FriendshipsController < ApplicationController
 	friends = []
 	if location == "findusers"
 		users = current_user.strangers.filter(params.slice(:starts_with))
+			.paginate(page: params[:page], per_page: 50)
 	elsif location == "notifications"
 		notifs = current_user.pending_requests
+			.paginate(page: params[:page], per_page: 50)
 	elsif location == "friends"
-		friends = current_user.friends
+		friends = User.where(id: current_user.friends.map(&:id))
+			.filter(params.slice(:starts_with))
+			.paginate(page: params[:page], per_page: 50)
 	else
 		location = "friendfeed"
 	    feed = current_user.friend_feed
 	    feed = friend_feed.where(friend_id: params[:friend_id]) if params[:friend_id].present?
-	    feed.order("created_at DESC")
+	    feed = feed.order("created_at DESC")
+			.paginate(page: params[:page], per_page: 50)
 	end
 
     render locals: {

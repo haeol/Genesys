@@ -4,32 +4,3 @@
 </div>
 
 <%= render location, posts: posts, comments: comments %>
-
-<ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#myposts">My posts</a></li>
-	<li><a data-toggle="tab" href="#mycomments">My comments</a></li>
-</ul>
-<div class="tab-content">
-	<div id="myposts" class="tab-pane fade in active">
-		<div id="dashboard" class="dashboard">
-		<!-- TODO use the profile controller -->
-		<%= render "tab", :posts => posts %>
-		</div>
-	</div>
-	<div id="mycomments" class="tab-pane fade">
-		<!-- my comments -->
-		<div class="container">
-			<div class="post-comments">
-			<% comments.each do |comment| %>
-				<div class="media">
-					<div class="media-body">
-						<p> <%= link_to comment.post.name, post_path(comment.post.id)%> </p>
-						<p> <%= comment.description %> </p>
-					</div>
-				</div>
-			<% end %>
-			</div>
-		</div>
-		<!-- end my comments -->
-	</div>
-</div>

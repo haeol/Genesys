@@ -1,8 +1,15 @@
 <% comments.each do |comment| %>
     <div class="media">
         <div class="media-body">
-            <p> <%= link_to comment.post.name, post_path(comment.post.id)%> </p>
-            <p> <%= comment.description %> </p>
+            <h4> <%= link_to comment.post.name, post_path(comment.post.id)%> </h4>
+            <div class="well">
+                <p> <%= comment.description %> </p>
+                <small> <%= "#{comment.submit_time_diff}" %> </small>
+            </div>
         </div>
     </div>
 <% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate comments %>
+</div>
