@@ -20,8 +20,8 @@
 
     <%= link_to myprofile_index_path, class: curr_page(myprofile_index_path) do %>
 	  	<div class="sidebar-myprofile sidebar-container sidebar-tabs">
-        <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
-        <h4>My Profile</h4>
+        <i class="fa  fa-folder-open fa-2x" aria-hidden="true"></i>
+        <h4>My Collection</h4>
       </div>
 	  <% end %>
 
@@ -31,16 +31,6 @@
         <h4>Friends</h4>
       </div>
 	  <% end %>
-
-    <% if false %>
-    <%= link_to groups_path, class: curr_page(groups_path) do %>
-	  	<div class="sidebar-groups sidebar-container sidebar-tabs">
-        <i class="fa fa-users fa-2x" aria-hidden="true"></i>
-        <h4>Groups</h4>
-      </div>
-    <% end %>
-	  <% end %>
-
 
     <% end %>
 
