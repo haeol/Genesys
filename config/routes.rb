@@ -25,7 +25,6 @@ Rails.application.routes.draw do
 	
 	get "/pages/*page" => "pages#show"
 
-	#root "pages#show", page: "home"
-  root "dashboard#index", page: "home"
+  root "dashboard#index"
 
 end
