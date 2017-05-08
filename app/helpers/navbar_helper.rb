@@ -19,7 +19,7 @@ module NavbarHelper
     if curr_page(dashboard_index_path)
       "Search dashboard . . ."
     elsif curr_page(myprofile_index_path)
-      "Search your profile . . ."
+      "Search your collection . . ."
     elsif curr_page(friendships_path)
       "Search for friends . . ."
     elsif curr_page(groups_path)
