@@ -8,7 +8,7 @@ class MyprofileController < ApplicationController
     else
       location = "posts"
       posts = current_user.viewableposts.filter(params.slice(:starts_with))
-  			.paginate(page: params[:page], per_page: 50)
+        .paginate(page: params[:page], per_page: 50)
     end
 
     render locals: {
@@ -29,9 +29,9 @@ class MyprofileController < ApplicationController
       location = "posts"
       posts = user.viewableposts.filter(params.slice(:starts_with))
   			.paginate(page: params[:page], per_page: 50)
+        
+        
     end
-    puts comments.inspect
-    puts posts.inspect
 
     render locals: {
       location: location,
