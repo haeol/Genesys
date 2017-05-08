@@ -53,6 +53,7 @@ class PostsController < ApplicationController
     #when delete post, delete related comment first
     #@comment = Comment.where("post_id=?", @post.id)
     #@comment.destroy
+    @post.delete_tags
     @post.destroy
 
     if @post.destroyed?

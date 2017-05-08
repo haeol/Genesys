@@ -96,6 +96,10 @@ class Post < ApplicationRecord
     tag.gsub(/[^0-9a-z ]/i, '').downcase
   end
 
+  def star_rating
+    "★"*rating.round #+ (5 - rating)*"☆"
+  end
+
   #def embedded_html
   #  begin
   #    OEmbed::Providers.get(self.url).html.html_safe
@@ -138,6 +142,14 @@ class Post < ApplicationRecord
     "#{distance_of_time_in_words(self.created_at, Time.now)}"
   end
   #end formatted information
+
+  def delete_tags
+    tags.each do |t|
+      if t.posts.length == 1 && t.posts.find(id) == self
+        t.destroy
+      end
+    end
+  end
 
 
 end
