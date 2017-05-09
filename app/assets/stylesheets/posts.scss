@@ -207,6 +207,14 @@
   background-color: $gray;
 }
 
+.btn-two{
+  opacity: 0.85;
+  background-color: $emerald;
+  &:hover{
+    opacity: 1;
+  }
+}
+
  .btn-one:hover, .btn-one:focus, .btn-one:active, .btn-one.active, .open > .btn-one.dropdown-toggle {
   background-color: $sky !important;
 }
