@@ -5,9 +5,11 @@ class FriendFeedsController < ApplicationController
 
   def create
     friends = params[:friends]
-    friends.each do |friend|
-      f = User.find(friend).friend_feed.build(friend_id: params[:friend_id], post_id: params[:post_id])
-      f.save
+    if friends
+        friends.each do |friend|
+          f = User.find(friend).friend_feed.build(friend_id: params[:friend_id], post_id: params[:post_id])
+          f.save
+        end
     end
 
     redirect_to :back

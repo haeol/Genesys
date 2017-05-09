@@ -97,7 +97,7 @@ class Post < ApplicationRecord
   end
 
   def star_rating
-    "★"*rating.round #+ (5 - rating)*"☆"
+    "★"*rating.round if rating#+ (5 - rating)*"☆"
   end
 
   #def embedded_html
