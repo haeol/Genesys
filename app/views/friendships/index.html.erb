@@ -1,7 +1,7 @@
 <div class="btn-group btn-group-justified">
   <%= link_to "Friend Feed", friendships_path(location: "friendfeed"), class:"btn btn-primary"%>
-  <%= link_to "Find Users", friendships_path(location: "findusers"), class:"btn btn-primary"%>
-  <%= link_to "Notifications", friendships_path(location: "notifications"), class:"btn btn-primary"%>
-  <%= link_to "Friends", friendships_path(location: "friends"), class:"btn btn-primary"%>
+  <%= link_to "Find Users", friendships_path(location: "findusers"), class:"btn btn-success"%>
+  <%= link_to "Notifications", friendships_path(location: "notifications"), class:"btn btn-warning"%>
+  <%= link_to "Friends", friendships_path(location: "friends"), class:"btn btn-info"%>
 </div>
 <%= render location, feed: feed, users: users, notifications: notifications, friends: friends %>

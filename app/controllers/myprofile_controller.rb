@@ -7,14 +7,16 @@ class MyprofileController < ApplicationController
   			.paginate(page: params[:page], per_page: 50)
     else
       location = "posts"
-      posts = current_user.viewableposts.filter(params.slice(:starts_with))
+      posts = current_user.viewableposts.filter(params.slice(:starts_with, :tag, :tag_id))
         .paginate(page: params[:page], per_page: 50)
     end
+
 
     render locals: {
       posts: posts,
       comments: comments,
-      location: location
+      location: location,
+      tags: current_user.tags
     }
   end
 
@@ -29,8 +31,6 @@ class MyprofileController < ApplicationController
       location = "posts"
       posts = user.viewableposts.filter(params.slice(:starts_with))
   			.paginate(page: params[:page], per_page: 50)
-        
-        
     end
 
     render locals: {

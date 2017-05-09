@@ -61,6 +61,16 @@ end
     end
   end
 
+  def tags
+    tags = []
+    posts.each do |p|
+      p.tags.each do |t|
+        tags << t
+      end
+    end
+    tags
+  end
+
   def friends
     active_friends | received_friends
   end

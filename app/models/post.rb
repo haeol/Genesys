@@ -55,7 +55,7 @@ class Post < ApplicationRecord
   def add_thumbnail
     begin
       thumbnail_url = OEmbed::Providers.get(self.url).thumbnail_url
-    rescue OEmbed::NotFound
+    rescue Exception
       thumbnail_url = nil
     end
     if thumbnail_url
@@ -66,7 +66,7 @@ class Post < ApplicationRecord
   def add_html
     begin
       html = OEmbed::Providers.get(self.url).html.html_safe
-    rescue OEmbed::NotFound
+    rescue Exception
       html = nil
     end
     if html

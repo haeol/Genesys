@@ -1,3 +1,15 @@
+
+<ul class="nav nav-pills dashboard-tabs">
+  <li class="nav-item active">
+    <%= link_to "All", myprofile_index_path %>
+  </li>
+  <% tags.each do |tag| %>
+    <li class="nav-item <%=current_page?(myprofile_index_path(tag_id: tag.id)) ? 'active' : ''%>" id="tag-<%=tag.id%>">
+      <%= link_to "#{tag.capital_name}", myprofile_index_path(tag_id: tag.id) %>
+    </li>
+  <% end %>
+</ul>
+
 <div class="content-tab">
 <% posts.each do |post| %>
 <!-- This is a card partial, but rendering partials is slower than doing this -->
