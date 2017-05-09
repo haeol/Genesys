@@ -1,11 +1,11 @@
 
 <ul class="nav nav-pills dashboard-tabs">
   <li class="nav-item active">
-    <%= link_to "All", myprofile_path(id: user.id) %>
+    <%= link_to "All", myprofile_index_path %>
   </li>
   <% tags.each do |tag| %>
-    <li class="nav-item <%=current_page?(myprofile_path(id: user.id, tag_id: tag.id)) ? 'active' : ''%>" id="tag-<%=tag.id%>">
-      <%= link_to "#{tag.capital_name}", myprofile_path(id: user.id, tag_id: tag.id) %>
+    <li class="nav-item <%=current_page?(myprofile_index_path(tag_id: tag.id)) ? 'active' : ''%>" id="tag-<%=tag.id%>">
+      <%= link_to "#{tag.capital_name}", myprofile_index_path(tag_id: tag.id) %>
     </li>
   <% end %>
 </ul>
