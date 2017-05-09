@@ -62,7 +62,7 @@ end
   end
 
   def tags
-    tags = []
+    tags = Set.new
     posts.each do |p|
       p.tags.each do |t|
         tags << t
